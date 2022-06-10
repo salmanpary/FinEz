@@ -7,8 +7,9 @@ import { BsFillBriefcaseFill } from 'react-icons/bs'
 import { GiCoffeeMug } from 'react-icons/gi'
 import axios from 'axios'
 
-function Home({setBasket,basket}) {
-    const [disabled,setDisabled] = useState(false)
+function Home({ setBasket, basket }) {
+    const [disabled, setDisabled] = useState(false)
+    const [showbasket, setShowbasketdata] = useState({})
     const data = [
         {
             name: 'Bluechips',
@@ -42,8 +43,34 @@ function Home({setBasket,basket}) {
 
     }, [])
 
+
+    const basketHandler = () => {
+
+        axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
+        console.log(showbasket)
+        // console.log(showbasket.allocation);
+    }
+
+
     return (
         <div>
+            {/* <div className="">
+                {showbasket ?
+                    <>
+                        {showbasket.map((data) => {
+                            <div className="">
+                                data.basket.allocation
+
+                            </div>
+                        })}
+                    </> : null
+
+
+                }
+            </div> */}
+            <div>
+                {showbasket.length>0&&showbasket.allocation}
+            </div>
             <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg" >
                 <div className="">
                     <h3 className='text-2xl font-bold'>Overview</h3>
@@ -74,14 +101,18 @@ function Home({setBasket,basket}) {
             <div className="flex lg:ml-60">
                 <div className="">
 
-                {data.map((datas)=>(
-                    <>
-{datas.name==='Bluechips'? ()=>{setDisabled(false)}: ()=>setDisabled(true)}
-                    <Investment disabled={disabled} setBasket={setBasket} basket={basket} title={datas.name} des={datas.desc} tag={datas.title} tagdes={datas.desc2} />
-                    </>
-                ))}
-                    
+                    {data.map((datas) => (
+                        <>
+                            {datas.name === 'Bluechips' ? () => { setDisabled(false) } : () => setDisabled(true)}
+                            <Investment disabled={disabled} setBasket={setBasket} basket={basket} title={datas.name} des={datas.desc} tag={datas.title} tagdes={datas.desc2} />
+                        </>
+                    ))}
+                    <div className="flex justify-center">
+                        <button className='bg-green-500 text-white px-6 py-2 rounded hover:px-7 hover:py-3 my-2' onClick={basketHandler} type="submit">Show More</button>
+                    </div>
+
                 </div>
+
                 <div className="Home_container2 p-4 ml-8 text-left rounded">
                     <h3 className='font-bold mb-4'>How to start investing in Basket</h3>
                     <h5 className='mb-4 flex items-center'><GoVerified className='text mt-1 text-green-400' /> &nbsp; Viewed Home</h5>
@@ -89,7 +120,9 @@ function Home({setBasket,basket}) {
                     <h5 className='mb-4 flex items-center'><BsFillBriefcaseFill className='text mt-1 ' /> &nbsp; Invest in Basket</h5>
                     <h5 className='mb-4 flex items-center'><GiCoffeeMug className='text mt-1 ' /> &nbsp; Start SIP</h5>
                 </div>
+
             </div>
+
         </div>
     )
 }

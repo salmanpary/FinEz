@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 
 function Login() {
@@ -14,7 +15,7 @@ function Login() {
         if (user.email != '' && user.password != '') {
             alert('Every field is necessary')
         } else {
-            console.log(user);
+            axios.post('https://fineazy-backend.herokuapp.com/auth/login', user).then((res) => console.log(res)).catch((err) => console.log(err))
         }
     }
     return (

@@ -71,7 +71,10 @@ function Navbar() {
             <div className="flex mr-12">
                 {hasAddress ? <>
                     {data.address.slice(0, 8)}...
-                </> : <> <h5 className='mx-2 cursor-pointer border-[1px] border-black px-1' onClick={btnhandler}> Connect to wallet</h5></>}
+                </> : <>
+                    {/* <h5 className='mx-2 cursor-pointer border-[1px] border-black px-1' onClick={btnhandler}> Connect to wallet</h5> */}
+                    <button className='bg-green-500 text-white px-2 rounded ' type="submit" onClick={btnhandler}>Connect to wallet</button>
+                </>}
                 <h5 className='mx-2'>Investments</h5>
             </div>
         </div>
