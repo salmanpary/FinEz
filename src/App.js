@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Create from './components/Create'
 import Navbar from './components/Navbar';
 import Details from './pages/Details';
+import Createbasket from './components/Createbasket';
 import { Route, Routes } from 'react-router-dom'
 
 import React,{useState} from 'react';
@@ -22,6 +23,7 @@ function App() {
           <Route path="/details" element={<Details basket={basket} setBasket={setBasket} />} />
 
           <Route path="/create" element={<Create />} />
+          <Route path="/createbasket" element={<Createbasket />} />
         </Routes>
       </div>
 
