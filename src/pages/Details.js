@@ -27,7 +27,7 @@ function Details() {
     const data2 = [{
         name: 'Bluechips',
         managed: 'Managed by Altcoin Gordan',
-        percent: '50% BTC AND 50% ETH',
+        percent: '50% BTC and 50% ETH',
         change: '14.4',
         title: 'Popular',
         weight1: 1,
@@ -52,7 +52,7 @@ function Details() {
         <div>
             <div className="flex justify-between lg:mx-52 bg-gray-100 p-8 rounded-lg items-center">
                 <div className="flex">
-                <img src="https://miro.medium.com/max/1400/1*m5LvG5oPiUGZHR7om2kXyw.png" className='w-[10rem] rounded-2xl' alt="" />
+                    <img src="https://miro.medium.com/max/1400/1*m5LvG5oPiUGZHR7om2kXyw.png" className='w-[10rem] rounded-2xl' alt="" />
                     <div className="">
                         <h3 className='text-2xl font-bold mb-2'>Bluechips</h3>
                         <h6 className='text-xs mb-2 text-gray-700'>Managed by Altcoin Gordan</h6>
@@ -81,7 +81,7 @@ function Details() {
                     <h3 className='text-2xl mt-4 font-bold'> 20 USDT</h3>
                     <h6 className='mt-4 text-sm'>Get free access forever</h6>
                     <h5 className='text-sm font-bold'>See more benifits</h5>
-                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white rounded font-semibold text-xl' onClick={()=>setShowModal(!modal)}> Invest Now</button> <br />
+                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white rounded font-semibold text-xl' onClick={() => setShowModal(!modal)}> Invest Now</button> <br />
                     {/* <button type="submit" className='mt-4 w-[10rem] py-2 border-2'>Add to Watchlist</button> <br /> */}
                     <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 border-2 border-red-400 text-red-400 hover:bg-red-400 hover:text-white font-semibold rounded text-xl' onClick={sell}>sell</button>
                 </div>
