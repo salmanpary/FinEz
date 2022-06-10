@@ -9,7 +9,7 @@ import axios from 'axios'
 
 function Home({ setBasket, basket }) {
     const [disabled, setDisabled] = useState(false)
-    const [showbasket, setShowbasketdata] = useState({})
+    const [showbasket, setShowbasketdata] = useState()
     const data = [
         {
             name: 'Bluechips',
@@ -47,30 +47,15 @@ function Home({ setBasket, basket }) {
     const basketHandler = () => {
 
         axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
-        console.log(showbasket)
-        // console.log(showbasket.allocation);
+        console.log(showbasket[0].email)
+        // console.log(showbasket);
+        // console.log(showbasket.length);
     }
 
 
     return (
         <div>
-            {/* <div className="">
-                {showbasket ?
-                    <>
-                        {showbasket.map((data) => {
-                            <div className="">
-                                data.basket.allocation
 
-                            </div>
-                        })}
-                    </> : null
-
-
-                }
-            </div> */}
-            <div>
-                {showbasket.length>0&&showbasket.allocation}
-            </div>
             <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg" >
                 <div className="">
                     <h3 className='text-2xl font-bold'>Overview</h3>
@@ -110,7 +95,10 @@ function Home({ setBasket, basket }) {
                     <div className="flex justify-center">
                         <button className='bg-green-500 text-white px-6 py-2 rounded hover:px-7 hover:py-3 my-2' onClick={basketHandler} type="submit">Show More</button>
                     </div>
+                    <div className="">
+                        {showbasket && showbasket[0].email}
 
+                    </div>
                 </div>
 
                 <div className="Home_container2 p-4 ml-8 text-left rounded">
@@ -123,7 +111,9 @@ function Home({ setBasket, basket }) {
 
             </div>
 
+
         </div>
+
     )
 }
 
