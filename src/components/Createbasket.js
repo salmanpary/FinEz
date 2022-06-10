@@ -1,29 +1,117 @@
 import React, { useState } from "react";
+import axios from "axios";
 const Createbasket = () => {
-  const [toadam, settoadam] = useState({
-    crypto1: "",
-crypto2: "",
-    crypto3: "",
+  const [obj, setobj] = useState({
+    title: "",
+    description: "",
+    email: "salmanpary@gmail.com",
+    min_amount: 0,
+    coins: [],
+    allocation: [],
+    commision:0
   });
-  const [allocation,setAllocation] = useState({
-    
-  })
-  const handleChange = (e)=>{
-      const {value} = e.target
-      setAllocation({...allocation,value})
+  const settitle=(event)=>{
+      obj['title']=event.target.value
+      setobj(obj)
+      console.log(obj)
+  }
+  const setdescription=(event)=>{
+      obj['description']=event.target.value 
+        setobj(obj)
+        console.log(obj)
+  }
+  
+  const changecrypto1 = (event) => {
+    obj["coins"][0] = event.target.value;
+    setobj(obj);
+    console.log(obj)
+  };
+  const changecrypto2=(event)=>{
+      obj["coins"][1]=event.target.value
+      setobj(obj)
+      console.log(obj)
+  }
+  const changecrypto3=(event)=>{
+    obj["coins"][2]=event.target.value
+    setobj(obj)
+    console.log(obj)
+}
+const allocation1=(event)=>{
+    obj["allocation"][0]=event.target.value 
+    setobj(obj)
+    console.log(obj)
+}
+const allocation2=(event)=>{
+    obj["allocation"][1]=event.target.value 
+    setobj(obj)
+    console.log(obj)
+}
+const allocation3=(event)=>{
+    obj["allocation"][2]=event.target.value 
+    setobj(obj)
+    console.log(obj)
+}
+const setminimumamount=(event)=>{
+    obj["min_amount"]=parseInt(event.target.value)
+    setobj(obj)
+    console.log(obj)
+}
+const setpercentage=(event)=>{
+    obj["commision"]=parseInt(event.target.value)
+    setobj(obj)
+    console.log(obj)
+}
+const formonsubmit=(event)=>{
+    event.preventDefault()
+    axios.post("https://fineazy-backend.herokuapp.com/getprice/create_basket",obj).then((res)=>{
+        console.log(res.data)
+    }).catch((e)=>{
+        console.log(e)
+    })
+}
 
-    }
-   const handleSubmit = (e)=>{
-       e.preventDefault()
-console.log(allocation);
-    }
   return (
     <>
-      <form action="post">
+      <form action="post" onSubmit={formonsubmit}>
         <div className="heading text-center text-3xl font-bold mb-6">
           Create your basket
         </div>
         <div className="bg-gray-100 rounded-xl  px-16 py-10  mx-7 ">
+        <div className="flex justify-center">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 whitespace-nowrap"
+                for="grid-first-name"
+              >
+                Title
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3  mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="grid-first-name"
+                type="text"
+                placeholder="enter your portfolio title"
+                onChange={settitle}
+              />
+            </div>
+            
+          </div>
+          <div className="flex justify-center">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 whitespace-nowrap"
+                for="grid-first-name"
+              >
+                  Description
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3  mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="grid-first-name"
+                type="text"
+                placeholder="enter your description here"
+                onChange={setdescription}
+              />
+            </div>
+          </div>
           <div className="flex justify-center items-center mb-7">
             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
@@ -34,14 +122,14 @@ console.log(allocation);
               </label>
               <div class="relative">
                 <select
-                value={toadam.crypto1}
                   class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-state"
+                    onChange={changecrypto1}
                 >
-                  <option >BTC</option>
-                  <option>ETH</option>
-                  <option>DOGECOIN</option>
-                  <option>SOLANA</option>
+                  <option value="BTCUSDT">BTC</option>
+                  <option value="ETHUSDT">ETH</option>
+                  <option value="DOGEUSDT">DOGECOIN</option>
+                  <option value="SOLUSDT">SOLANA</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
@@ -62,13 +150,11 @@ console.log(allocation);
                 Allocation(%)
               </label>
               <input
-              name="crypto1"
-              value={allocation.crypto1}
-              onChange={handleChange}
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-zip"
                 type="text"
                 placeholder="in percentage"
+                onChange={allocation1}
               />
             </div>
           </div>
@@ -82,10 +168,9 @@ console.log(allocation);
               </label>
               <div class="relative">
                 <select
-                value={toadam.crypto2}
-                onChange={handleChange}
                   class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-state"
+                  onChange={changecrypto2}
                 >
                   <option>BTC</option>
                   <option>ETH</option>
@@ -111,13 +196,11 @@ console.log(allocation);
                 Allocation(%)
               </label>
               <input
-              name="crypto2"
-              value={allocation.crypto2}
-              onChange={handleChange}
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-zip"
                 type="text"
                 placeholder="in percentage"
+                onChange={allocation2}
               />
             </div>
           </div>
@@ -131,15 +214,14 @@ console.log(allocation);
               </label>
               <div class="relative">
                 <select
-                value={toadam.crypto2}
-                onChange={handleChange}
                   class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-state"
+                  onChange={changecrypto3}
                 >
                   <option value="BTC">BTC</option>
                   <option value="ETH">ETH</option>
                   <option value="DOGECOIN">DOGECOIN</option>
-                  <option value="SOLANA">SOLANA</option>
+                  <option value="DOGECOIN">SOLANA</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
@@ -160,13 +242,11 @@ console.log(allocation);
                 Allocation(%)
               </label>
               <input
-              name="crypto3"
-              value={allocation.crypto3}
-              onChange={handleChange}
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-zip"
                 type="text"
                 placeholder="in percentage"
+                onChange={allocation3}
               />
             </div>
           </div>
@@ -184,6 +264,7 @@ console.log(allocation);
                 id="grid-first-name"
                 type="text"
                 placeholder="Eg:20"
+                onChange={setminimumamount}
               />
             </div>
           </div>
@@ -200,11 +281,13 @@ console.log(allocation);
                 id="grid-first-name"
                 type="text"
                 placeholder="0-8%"
+                onChange={setpercentage}
+
               />
             </div>
           </div>
           <div className=" flex justify-center">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleSubmit}>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               SUBMIT
             </button>
           </div>
