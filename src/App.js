@@ -5,8 +5,10 @@ import Create from './components/Create'
 import Navbar from './components/Navbar';
 import Details from './pages/Details';
 import { Route, Routes } from 'react-router-dom'
+import Login from './pages/Login'
 
-import React,{useState} from 'react';
+import React, { useState } from 'react';
+import Signin from './pages/Signin';
 
 function App() {
   const [basket, setBasket] = useState('')
@@ -20,7 +22,8 @@ function App() {
 
           <Route path="/" element={<Home basket={basket} setBasket={setBasket} />} />
           <Route path="/details" element={<Details basket={basket} setBasket={setBasket} />} />
-
+          <Route path='/signin' element={<Signin />} />
+          <Route path='/login' element={<Login />} />
           <Route path="/create" element={<Create />} />
         </Routes>
       </div>
