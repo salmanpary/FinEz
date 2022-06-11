@@ -27,8 +27,8 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path="/home2" element={<Home2 />} exact />
-          <Route path="/" exact element={<Home basket={basket} setBasket={setBasket} />} />
+          <Route path="/" element={<Home2 />} exact />
+          <Route path="/home2" exact element={<Home basket={basket} setBasket={setBasket} />} />
           <Route path="/details" exact element={<Details basket={basket} setBasket={setBasket} />} />
           <Route path="/create" element={<Create />} />
           <Route path="/mybasket" element={<Mybasket basket={basket} setBasket={setBasket}/>} />

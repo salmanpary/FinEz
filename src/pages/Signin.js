@@ -1,11 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { usersContext } from '../store/userContext'
 
 function Signin() {
     const navigate = useNavigate()
-    const { setUseremail } = useContext(usersContext)
     const [user, setUser] = useState({
         name: '',
         email: '',
@@ -27,7 +25,7 @@ function Signin() {
         if (user.password.length != '' && user.api_key != '' && user.email != '' && user.name != '' && user.api_secret != '') {
             axios.post('https://fineazy-backend.herokuapp.com/auth/signup', user).then((res) => {
                 console.log(res)
-                setUseremail = user.email
+
                 navigate('/')
 
             }).catch((err) => console.log(err))

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ethers } from "ethers";
+import piggy from "../images/piggy.png"
 // import { useState } from 'react';
 function Navbar() {
     const [data, setdata] = useState({
@@ -61,21 +62,21 @@ function Navbar() {
     }, [data.address])
 
     return (
-        <div className='flex fixed w-full drop-shadow-lg justify-between bg-white h-12 p-2'>
+        <div className='navbar flex fixed justify-between bg-white h-13 blue_3d_nav mx-10 ml-12 w-11/12 mt-5 p-2'>
             <div className=" flex mx-12 items-center">
-                <h3 className='text-3xl font-bold font-mono mr-8 text-green-500'>FE</h3>
-                <h5 className='mx-2'><Link to="/">Home</Link></h5>
-                <h5 className='mx-2'>Discover</h5>
-                <h5 className='mx-2'><Link to="/create">Create</Link></h5>
+                <img className="piggy m-0 p-0 " src={piggy}></img>
+                <h5 className='mx-2 nav_btn text-white'><Link to="/">Home</Link></h5>
+                <h5 className='mx-2 nav_btn text-white'>Discover</h5>
+                <h5 className='mx-2 nav_btn text-white'><Link to="/create">Create</Link></h5>
             </div>
             <div className="flex mr-12">
                 {hasAddress ? <>
                     {data.address.slice(0, 8)}...
                 </> : <>
                     {/* <h5 className='mx-2 cursor-pointer border-[1px] border-black px-1' onClick={btnhandler}> Connect to wallet</h5> */}
-                    <button className='bg-green-500 text-white px-2 rounded ' type="submit" onClick={btnhandler}>Connect to wallet</button>
+                    <button className=' white_3d   text-black p-3 px-4 mx-4 text-xs rounded-xl font-bold ' type="submit" onClick={btnhandler}>Connect wallet</button>
                 </>}
-                <h5 className='mx-2'>Investments</h5>
+                <h5 className='white_3d   text-black p-3 px-4 mr-0 text-xs rounded-xl font-bold '>Investments</h5>
             </div>
         </div>
     )

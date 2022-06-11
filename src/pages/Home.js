@@ -54,7 +54,9 @@ function Home({ setBasket, basket }) {
     }, [])
     const basketHandler = () => {
         setlength(showbasket.length)
+
         const temp = [...apidata]
+
         for (let i = 0; i < showbasket.length; i++) {
             temp.push({
                 name: showbasket[i].title,
@@ -62,8 +64,10 @@ function Home({ setBasket, basket }) {
                 desc2: showbasket[i].long_description,
                 title: showbasket[i].title
             })
+
             // setdata(temp)
             setApidata(temp)
+
         }
 
 
@@ -73,7 +77,7 @@ function Home({ setBasket, basket }) {
     return (
         <div>
 
-            <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg box_3d" >
+            <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg box_3d mt-12" >
 
                 <div className="">
                     <h3 className='text-2xl text-blue-800 font-bold'>Overview</h3>
