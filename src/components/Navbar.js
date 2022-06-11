@@ -66,15 +66,16 @@ function Navbar() {
             <div className=" flex mx-12 items-center">
                 <img className="piggy m-0 p-0 " src={piggy}></img>
                 <h5 className='mx-2 nav_btn text-white'><Link to="/">Home</Link></h5>
-                <h5 className='mx-2 nav_btn text-white'>Discover</h5>
+                <h5 className='mx-2 nav_btn text-white'><Link to="/home2">Discover</Link></h5>
                 <h5 className='mx-2 nav_btn text-white'><Link to="/create">Create</Link></h5>
+                <h5 className='mx-2 nav_btn text-white'><Link to="/mybasket">MyBaskets</Link></h5>
             </div>
             <div className="flex mr-12">
                 {hasAddress ? <>
                     {data.address.slice(0, 8)}...
                 </> : <>
                     {/* <h5 className='mx-2 cursor-pointer border-[1px] border-black px-1' onClick={btnhandler}> Connect to wallet</h5> */}
-                    <button className=' white_3d   text-black p-3 px-4 mx-4 text-xs rounded-xl font-bold ' type="submit" onClick={btnhandler}>Connect wallet</button>
+                    <button className=' white_3d   text-black p-3 px-4 mx-4 text-xs rounded-xl font-bold ' type="submit" disabled={true} onClick={btnhandler}>Connect wallet</button>
                 </>}
                 <h5 className='white_3d   text-black p-3 px-4 mr-0 text-xs rounded-xl font-bold '>Investments</h5>
             </div>

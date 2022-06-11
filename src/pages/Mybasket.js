@@ -32,7 +32,7 @@ function Mybasket({ setBasket, basket }) {
 
 
     return (
-        <div>
+        <div className='mt-12'>
             <button className='btn mb-12' onClick={basketHandler}>Show Baskets</button>
 
             {apidata.map((datas) => (

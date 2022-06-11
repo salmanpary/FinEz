@@ -23,8 +23,11 @@ function Modal({ setShowModal, modal }) {
             console.log(res.data)
             if (res.data.status == "success") {
                 alert('Order Placed Successfylly')
-                navigate('/')
+                navigate('/home2')
 
+            } else {
+                alert('Insuffient balance')
+                navigate('/details')
             }
         }).catch(err => { console.log(err) })
     }

@@ -92,7 +92,8 @@ const Createbasket = () => {
     event.preventDefault()
     axios.post("https://fineazy-backend.herokuapp.com/getprice/create_basket", obj).then((res) => {
       console.log(res.data)
-      navigate('/')
+      alert('Basket created successfully')
+      navigate('/home2')
     }).catch((e) => {
       console.log(e)
     })

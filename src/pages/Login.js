@@ -26,12 +26,12 @@ function Login() {
         // if (user.email != '' && user.password != '') {
         //     alert('Every field is necessary')
         // } else {
-            axios.post('https://fineazy-backend.herokuapp.com/auth/login', user).then((res) => {
-                console.log(res)
-                navigate('/')
-                // setUseremail = user.email
+        axios.post('https://fineazy-backend.herokuapp.com/auth/login', user).then((res) => {
+            console.log(res)
+            navigate('/home2')
+            // setUseremail = user.email
 
-            }).catch((err) => console.log(err))
+        }).catch((err) => console.log(err))
         // }
     }
     return (
