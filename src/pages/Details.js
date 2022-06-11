@@ -22,30 +22,14 @@ function Details() {
 
     const [amount, setAmount] = useState(0)
 
-
-
-    const data2 = [{
-        name: 'Bluechips',
-        managed: 'Managed by Altcoin Gordan',
-        percent: '50% BTC and 50% ETH',
-        change: '14.4',
-        title: 'Popular',
-        weight1: 1,
-        weight2: 2,
-        coin1: 'BTC',
-        coin2: 'ETH',
-        image: ''
-
-    }]
-
     const investHandler = () => {
 
         console.log('hello');
-        axios.post(`https://fineazy.herokuapp.com/getprice/buy`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+        axios.post(`https://fineazy-backend.herokuapp.com/getprice/buy`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
     }
     const sell = () => {
 
-        axios.post('https://fineazy.herokuapp.com/getprice/sell').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+        axios.post('https://fineazy-backend.herokuapp.com/getprice/sell').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
     }
     const ref = useRef(null)
     return (

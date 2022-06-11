@@ -1,6 +1,28 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Createbasket = () => {
+  const navigate = useNavigate()
+  const data = ["ETHBTC",
+    "BTC",
+    "ETH",
+    "LTCBTC",
+    "BNBBTC",
+    "NEOBTC",
+    "QTUMETH",
+    "EOSETH",
+    "SNTETH",
+    "BNTETH",
+    "BCCBTC",
+    "GASBTC",
+    "BNBETH",
+    "BTCUSDT",
+    "ETHUSDT",
+    "HSRBTC",
+    "OAXETH",
+    "DNTETH",
+    "MCOETH",
+    "ICNETH"]
   const [obj, setobj] = useState({
     title: "",
     description: "",
@@ -8,72 +30,73 @@ const Createbasket = () => {
     min_amount: 0,
     coins: [],
     allocation: [],
-    commision:0,
-    marketing_tagline:""
+    commision: 0,
+    marketing_tagline: ""
   });
-  const settitle=(event)=>{
-      obj['title']=event.target.value
-      setobj(obj)
-      console.log(obj)
+  const settitle = (event) => {
+    obj['title'] = event.target.value
+    setobj(obj)
+    console.log(obj)
   }
-  const setdescription=(event)=>{
-      obj['description']=event.target.value 
-        setobj(obj)
-        console.log(obj)
+  const setdescription = (event) => {
+    obj['description'] = event.target.value
+    setobj(obj)
+    console.log(obj)
   }
-  
+
   const changecrypto1 = (event) => {
     obj["coins"][0] = event.target.value;
     setobj(obj);
     console.log(obj)
   };
-  const changecrypto2=(event)=>{
-      obj["coins"][1]=event.target.value
-      setobj(obj)
-      console.log(obj)
+  const changecrypto2 = (event) => {
+    obj["coins"][1] = event.target.value
+    setobj(obj)
+    console.log(obj)
   }
-  const changecrypto3=(event)=>{
-    obj["coins"][2]=event.target.value
+  const changecrypto3 = (event) => {
+    obj["coins"][2] = event.target.value
     setobj(obj)
     console.log(obj)
-}
-const allocation1=(event)=>{
-    obj["allocation"][0]=event.target.value 
+  }
+  const allocation1 = (event) => {
+    obj["allocation"][0] = event.target.value
     setobj(obj)
     console.log(obj)
-}
-const allocation2=(event)=>{
-    obj["allocation"][1]=event.target.value 
+  }
+  const allocation2 = (event) => {
+    obj["allocation"][1] = event.target.value
     setobj(obj)
     console.log(obj)
-}
-const allocation3=(event)=>{
-    obj["allocation"][2]=event.target.value 
+  }
+  const allocation3 = (event) => {
+    obj["allocation"][2] = event.target.value
     setobj(obj)
     console.log(obj)
-}
-const setminimumamount=(event)=>{
-    obj["min_amount"]=parseInt(event.target.value)
+  }
+  const setminimumamount = (event) => {
+    obj["min_amount"] = parseInt(event.target.value)
     setobj(obj)
     console.log(obj)
-}
-const setpercentage=(event)=>{
-    obj["commision"]=parseInt(event.target.value)
+  }
+  const setpercentage = (event) => {
+    obj["commision"] = parseInt(event.target.value)
     setobj(obj)
     console.log(obj)
-}
-const setmarketingtagline=(event)=>{
-    obj["marketing_tagline"]=event.target.value
+  }
+  const setmarketingtagline = (event) => {
+    obj["marketing_tagline"] = event.target.value
     setobj(obj)
-}
-const formonsubmit=(event)=>{
+  }
+  const formonsubmit = (event) => {
     event.preventDefault()
-    axios.post("https://fineazy-backend.herokuapp.com/getprice/create_basket",obj).then((res)=>{
-        console.log(res.data)
-    }).catch((e)=>{
-        console.log(e)
+    axios.post("https://fineazy-backend.herokuapp.com/getprice/create_basket", obj).then((res) => {
+      console.log(res.data)
+      navigate('/')
+    }).catch((e) => {
+      console.log(e)
     })
-}
+  }
 
   return (
     <>
@@ -82,7 +105,7 @@ const formonsubmit=(event)=>{
           Create your basket
         </div>
         <div className="bg-gray-100 rounded-xl  px-16 py-10  mx-7 ">
-        <div className="flex justify-center">
+          <div className="flex justify-center">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 whitespace-nowrap"
@@ -98,7 +121,7 @@ const formonsubmit=(event)=>{
                 onChange={settitle}
               />
             </div>
-            
+
           </div>
           <div className="flex justify-center">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -106,7 +129,7 @@ const formonsubmit=(event)=>{
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 whitespace-nowrap"
                 for="grid-first-name"
               >
-                  Description
+                Description
               </label>
               <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3  mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -123,7 +146,7 @@ const formonsubmit=(event)=>{
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 whitespace-nowrap"
                 for="grid-first-name"
               >
-                  Marketing tagline
+                Marketing tagline
               </label>
               <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3  mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -146,12 +169,15 @@ const formonsubmit=(event)=>{
                 <select
                   class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-state"
-                    onChange={changecrypto1}
+                  onChange={changecrypto1}
                 >
-                  <option value="BTCUSDT">BTC</option>
+                  {/* <option value="BTCUSDT">BTC</option>
                   <option value="ETHUSDT">ETH</option>
                   <option value="DOGEUSDT">DOGECOIN</option>
-                  <option value="SOLUSDT">SOLANA</option>
+                  <option value="SOLUSDT">SOLANA</option> */}
+                  {data.map((datas) => (
+                    <option >{datas}</option>
+                  ))}
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
@@ -194,10 +220,13 @@ const formonsubmit=(event)=>{
                   id="grid-state"
                   onChange={changecrypto2}
                 >
-                  <option>BTC</option>
+                  {/* <option>BTC</option>
                   <option>ETH</option>
                   <option>DOGECOIN</option>
-                  <option>SOLANA</option>
+                  <option>SOLANA</option> */}
+                  {data.map((datas) => (
+                    <option >{datas}</option>
+                  ))}
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
@@ -240,10 +269,13 @@ const formonsubmit=(event)=>{
                   id="grid-state"
                   onChange={changecrypto3}
                 >
-                  <option value="BTC">BTC</option>
+                  {/* <option value="BTC">BTC</option>
                   <option value="ETH">ETH</option>
                   <option value="DOGECOIN">DOGECOIN</option>
-                  <option value="DOGECOIN">SOLANA</option>
+                  <option value="DOGECOIN">SOLANA</option> */}
+                  {data.map((datas) => (
+                    <option >{datas}</option>
+                  ))}
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
