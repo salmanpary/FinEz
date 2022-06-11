@@ -10,7 +10,7 @@ import axios from 'axios'
 function Home({ setBasket, basket }) {
     const [disabled, setDisabled] = useState(false)
     const [showbasket, setShowbasketdata] = useState()
-    const data = [
+    const[data,setdata]  =useState( [
         {
             name: 'Bluechips',
             desc: 'This basket consists of 50% BTC AND 50% ETH, These are higher marketcap coins',
@@ -29,7 +29,7 @@ function Home({ setBasket, basket }) {
             desc2: 'Take premium sub to access this bucket',
             title: 'Premium'
         }
-    ]
+    ])
     const [ar, setar] = useState({})
     useEffect(() => {
         let priceIntervel = setInterval(() => {
@@ -43,13 +43,23 @@ function Home({ setBasket, basket }) {
 
     }, [])
 
+useEffect(()=>{
+    axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
 
+},[])
     const basketHandler = () => {
 
-        axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
-        console.log(showbasket[0].email)
-        // console.log(showbasket);
-        // console.log(showbasket.length);
+    const temp=[...data]
+    temp.push({
+        name:showbasket[0].title,
+        desc:showbasket[0].description,
+        desc2:showbasket[0].description,
+        title:showbasket[0].title
+    })
+    setdata(temp)
+        
+       
+       
     }
 
 
@@ -94,10 +104,6 @@ function Home({ setBasket, basket }) {
                     ))}
                     <div className="flex justify-center">
                         <button className='bg-green-500 text-white px-6 py-2 rounded hover:px-7 hover:py-3 my-2' onClick={basketHandler} type="submit">Show More</button>
-                    </div>
-                    <div className="">
-                        {showbasket && showbasket[0].email}
-
                     </div>
                 </div>
 
