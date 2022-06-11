@@ -34,6 +34,7 @@ function Home({ setBasket, basket }) {
         }
     ])
     const [ar, setar] = useState({})
+    const [length,setlength]=useState(0)
     useEffect(() => {
         let priceIntervel = setInterval(() => {
             axios.get('https://fineazy.herokuapp.com/getprice/5').then(res => { setar(res.data) }).catch(err => { console.log(err) })
@@ -51,16 +52,17 @@ useEffect(()=>{
 
 },[])
     const basketHandler = () => {
-
+    setlength(showbasket.length)
     const temp=[...data]
+    for(let i=0;i<showbasket.length;i++){
     temp.push({
-        name:showbasket[0].title,
-        desc:showbasket[0].description,
-        desc2:showbasket[0].description,
-        title:showbasket[0].title
+        name:showbasket[i].title,
+        desc:showbasket[i].description,
+        desc2:showbasket[i].long_description,
+        title:showbasket[i].title
     })
     setdata(temp)
-        
+}
        
        
     }

@@ -1,6 +1,7 @@
 import React from "react";
 import illa from '../images/illa.jpg'
 import create from '../images/create.jpg'
+import { Link } from 'react-router-dom'
 
 const Create = () => {
     return (
@@ -24,9 +25,11 @@ const Create = () => {
                         and track them
                     </div>
                     <div className="button text-2xl rounded-md m-3">
+<Link to="/createbasket">
                         <button className="bg-blue-800 px-8 py-2 mt-4 rounded-xl text-white box_3d">
                             Create Basket
                         </button>
+                        </Link>
                     </div>
 
 
