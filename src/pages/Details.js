@@ -50,13 +50,19 @@ function Details() {
     const ref = useRef(null)
     return (
         <div>
-            <div className="flex justify-between lg:mx-52 bg-gray-100 p-8 rounded-lg items-center">
-                <div className="flex">
-                    <img src="https://miro.medium.com/max/1400/1*m5LvG5oPiUGZHR7om2kXyw.png" className='w-[10rem] rounded-2xl' alt="" />
+
+            <div className="box_3d m-10 flex justify-between lg:mx-52 bg-gray-100 p-6 rounded-lg items-center">
+                <div className="flex ">
+
                     <div className="">
-                        <h3 className='text-2xl font-bold mb-2'>Bluechips</h3>
+                        <h3 className='text-2xl font-bold mb-2 text-blue-800'>Bluechips</h3>
                         <h6 className='text-xs mb-2 text-gray-700'>Managed by Altcoin Gordan</h6>
-                        <h5 className='max-w-[40ch] text-sm font-bold'>50% BTC AND 50% ETH</h5>
+                        <div class="w-full bg-white-100 rounded-xl blue_3d">
+                            <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-1 leading-none rounded-l-full"> 50%</div>
+                        </div>
+                        <h5 className='max-w-[40ch] text-sm font-bold m-2 ml-0'>50% BTC AND 50% ETH</h5>
+
+
 
                     </div>
                 </div>
@@ -67,7 +73,7 @@ function Details() {
             </div>
             <fieldset className='border-4 w-[30rem] ml-[15rem] mt-12 p-4'>
                 <legend className='ml-4'><h3>Popular</h3></legend>
-                <h4>We have over 50k investers for this basket</h4>
+                <h4>We have over 50k investors for this basket</h4>
             </fieldset>
             <div className="flex ml-[15rem] mt-12">
                 <div className="">
@@ -107,7 +113,7 @@ function Details() {
                 <h4 className='text-[#49bae7] flex items-center text-xl my-2'><FaDotCircle />&nbsp; ETH : 50%</h4>
             </div>
 
-        </div>
+        </div >
     )
 }
 
