@@ -12,7 +12,7 @@ function Home({ setBasket, basket }) {
     const [disabled, setDisabled] = useState(false)
 
     const [showbasket, setShowbasketdata] = useState()
-    const[data,setdata]  =useState( [
+    const [data, setdata] = useState([
 
         {
             name: 'Bluechips',
@@ -33,8 +33,9 @@ function Home({ setBasket, basket }) {
             title: 'Premium'
         }
     ])
+    const [apidata, setApidata] = useState([])
     const [ar, setar] = useState({})
-    const [length,setlength]=useState(0)
+    const [length, setlength] = useState(0)
     useEffect(() => {
         let priceIntervel = setInterval(() => {
             axios.get('https://fineazy.herokuapp.com/getprice/5').then(res => { setar(res.data) }).catch(err => { console.log(err) })
@@ -47,24 +48,25 @@ function Home({ setBasket, basket }) {
 
     }, [])
 
-useEffect(()=>{
-    axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
+    useEffect(() => {
+        axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
 
-},[])
+    }, [])
     const basketHandler = () => {
-    setlength(showbasket.length)
-    const temp=[...data]
-    for(let i=0;i<showbasket.length;i++){
-    temp.push({
-        name:showbasket[i].title,
-        desc:showbasket[i].description,
-        desc2:showbasket[i].long_description,
-        title:showbasket[i].title
-    })
-    setdata(temp)
-}
-       
-       
+        setlength(showbasket.length)
+        const temp = [...apidata]
+        for (let i = 0; i < showbasket.length; i++) {
+            temp.push({
+                name: showbasket[i].title,
+                desc: showbasket[i].description,
+                desc2: showbasket[i].long_description,
+                title: showbasket[i].title
+            })
+            // setdata(temp)
+            setApidata(temp)
+        }
+
+
     }
 
 
@@ -101,7 +103,9 @@ useEffect(()=>{
             <h3 className='text-3xl mb-8 font-bold text-left ml-20 text-blue-800 '>Investment Baskets</h3>
             <div className="flex lg:ml-20">
                 <div className="">
-
+                    <div className="text-2xl my-8 text-center font-semibold">
+                        Trending
+                    </div>
                     {data.map((datas) => (
                         <>
                             {datas.name === 'Bluechips' ? () => { setDisabled(false) } : () => setDisabled(true)}
@@ -109,9 +113,24 @@ useEffect(()=>{
                         </>
                     ))}
 
+                    <div className="">
+                        <div className="text-2xl my-8 text-center font-semibold">
+                            Public Favourites
+                        </div>
+
+                        {apidata.map((datas) => (
+                            <>
+                                {/* {datas.name === 'Bluechips' ? () => { setDisabled(false) } : () => setDisabled(true)} */}
+                                <Investment disabled={disabled} setBasket={setBasket} basket={basket} title={datas.name} des={datas.desc} tag={datas.title} tagdes={datas.desc2} />
+                            </>
+                        ))}
+
+
+                    </div>
 
                 </div>
-                
+
+
                 <div className="Home_container2 p-6 ml-10 mr-4 text-left rounded box_3d">
                     <h3 className='font-bold mb-4'>How to start investing in a Basket</h3>
                     <h5 className='mb-5 flex items-center'><GoVerified className='text mt-1 text-green-400' /> &nbsp; Viewed Home</h5>
