@@ -6,6 +6,12 @@
     border-radius: 12px;
 }
 
+.red_3d {
+    background-color: rgb(239, 11, 11);
+    box-shadow: 4px 4px 12px rgba(239, 11, 11, 0.33), inset 4px 4px 14px rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+}
+
 .box_3d {
     box-shadow: 4px 4px 15px rgba(154, 154, 154, 0.338), inset 4px 4px 14px rgba(255, 255, 255, 0.25);
     border-radius: 20px;
@@ -19,4 +25,14 @@
 .img_create {
     z-index: -1;
     height: 450px
+}
+
+.red_3d:hover {
+    transition: ease 400ms;
+    transform: scale(1.04);
+}
+
+.blue_3d:hover {
+    transition: ease 400ms;
+    transform: scale(1.04);
 }
