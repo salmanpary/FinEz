@@ -12,6 +12,7 @@ import Login from './pages/Login';
 
 import React, { useState } from 'react';
 import Createbasket from './components/Createbasket';
+import Mybasket from './pages/Mybasket';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/home2" exact element={<Home basket={basket} setBasket={setBasket} />} />
           <Route path="/details" exact element={<Details basket={basket} setBasket={setBasket} />} />
           <Route path="/create" element={<Create />} />
+          <Route path="/mybasket" element={<Mybasket basket={basket} setBasket={setBasket}/>} />
           <Route path="/createbasket" element={<Createbasket />} />
         </Routes>
       </div>

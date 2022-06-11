@@ -1,25 +1,37 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function Modal({ setShowModal, modal }) {
     const [balance, setbalance] = useState({})
+    const navigate = useNavigate()
 
     useEffect(() => {
-      
-    axios.get('https://fineazy.herokuapp.com/getprice/balance').then((res)=>{
-        console.log(res.data);
-        setbalance(res.data)
-    }).catch((err)=>{
-        console.log(err);
-    })
-     
+
+        axios.get('https://fineazy-backend.herokuapp.com/getprice/balance').then((res) => {
+            console.log(res.data);
+            setbalance(res.data)
+        }).catch((err) => {
+            console.log(err);
+        })
+
     }, [])
-    
+
     const investHandler = () => {
         console.log('hello');
-        axios.post(`https://fineazy.herokuapp.com/getprice/buy`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+        axios.post(`https://fineazy-backend.herokuapp.com/getprice/buy`).then(res => {
+            console.log(res.data)
+            if (res.data.status == "success") {
+                alert('Order Placed Successfylly')
+                navigate('/home2')
+
+            } else {
+                alert('Insuffient balance')
+                navigate('/details')
+            }
+        }).catch(err => { console.log(err) })
     }
-    
+
     return (
 
 
@@ -42,11 +54,11 @@ function Modal({ setShowModal, modal }) {
                         <div className="relative p-6 flex-auto">
                             <p className="my-4 text-slate-500 text-lg leading-relaxed w-[70rem]">
                                 <h3 className='text-black'>Available Balance :</h3>
-                            <div className="flex">
-                            BTC : {balance && balance.BTC} <br />
-                            USDT : {balance && balance.BTC} 
+                                <div className="flex">
+                                    BTC : {balance && balance.BTC} <br />
+                                    USDT : {balance && balance.BTC}
 
-                            </div>
+                                </div>
                                 <div className="mt-12">
                                     <label htmlFor="" className='text-black'> Enter Amount : </label>
                                     <input type="text" className='border-2 pl-2 ' />

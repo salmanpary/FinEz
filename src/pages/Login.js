@@ -28,7 +28,9 @@ function Login() {
         // } else {
         axios.post('https://fineazy-backend.herokuapp.com/auth/login', user).then((res) => {
             console.log(res)
-            navigate('/')
+
+            navigate('/home2')
+
             // setUseremail = user.email
 
         }).catch((err) => console.log(err))

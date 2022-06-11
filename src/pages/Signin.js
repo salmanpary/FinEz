@@ -26,7 +26,10 @@ function Signin() {
         if (user.password.length != '' && user.api_key != '' && user.email != '' && user.name != '' && user.api_secret != '') {
             axios.post('https://fineazy-backend.herokuapp.com/auth/signup', user).then((res) => {
                 console.log(res)
-                navigate('/')
+
+
+                navigate('/home2')
+
 
             }).catch((err) => console.log(err))
             console.log(user);

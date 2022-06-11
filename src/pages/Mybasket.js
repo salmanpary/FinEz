@@ -1,8 +1,8 @@
 import axios from 'axios'
-import React,{useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Investment from '../components/Investment'
 
-function Mybasket() {
+function Mybasket({ setBasket, basket }) {
     const [apidata, setApidata] = useState([])
     const [length, setlength] = useState(0)
     const [showbasket, setShowbasketdata] = useState()
@@ -23,14 +23,28 @@ function Mybasket() {
 
     }
 
-    axios.get('https://fineazy-backend.herokuapp.com/getprice/users_basket').then()
-  return (
-    <div>
+    useEffect(() => {
+        var email = "salmanpary@gmail.com"
+
+        axios.post('https://fineazy-backend.herokuapp.com/getprice/users_basket', { "email": "salmanpary@gmail.com" }).then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
+    }, [])
+    console.log(showbasket);
 
 
+    return (
+        <div className='mt-12'>
+            <button className='btn mb-12' onClick={basketHandler}>Show Baskets</button>
 
-    </div>
-  )
+            {apidata.map((datas) => (
+                <>
+                    {/* {datas.name === 'Bluechips' ? () => { setDisabled(false) } : () => setDisabled(true)} */}
+                    <Investment setBasket={setBasket} basket={basket} title={datas.name} des={datas.desc} tag={datas.title} tagdes={datas.desc2} />
+                </>
+            ))}
+
+
+        </div>
+    )
 }
 
 export default Mybasket
