@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+
+.blue_3d {
+    background-color: rgb(17, 17, 137);
+    box-shadow: 4px 4px 12px rgba(17, 17, 137, 0.33), inset 4px 4px 14px rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+}
+
+.box_3d {
+    box-shadow: 4px 4px 15px rgba(154, 154, 154, 0.338), inset 4px 4px 14px rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+}
+
+* {
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.img_create {
+    z-index: -1;
+    height: 450px
+}
