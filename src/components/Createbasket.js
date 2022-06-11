@@ -8,7 +8,8 @@ const Createbasket = () => {
     min_amount: 0,
     coins: [],
     allocation: [],
-    commision:0
+    commision:0,
+    marketing_tagline:""
   });
   const settitle=(event)=>{
       obj['title']=event.target.value
@@ -61,6 +62,10 @@ const setpercentage=(event)=>{
     setobj(obj)
     console.log(obj)
 }
+const setmarketingtagline=(event)=>{
+    obj["marketing_tagline"]=event.target.value
+    setobj(obj)
+}
 const formonsubmit=(event)=>{
     event.preventDefault()
     axios.post("https://fineazy-backend.herokuapp.com/getprice/create_basket",obj).then((res)=>{
@@ -109,6 +114,23 @@ const formonsubmit=(event)=>{
                 type="text"
                 placeholder="enter your description here"
                 onChange={setdescription}
+              />
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 whitespace-nowrap"
+                for="grid-first-name"
+              >
+                  Marketing tagline
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3  mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="grid-first-name"
+                type="text"
+                placeholder="enter your detailed description here"
+                onChange={setmarketingtagline}
               />
             </div>
           </div>
