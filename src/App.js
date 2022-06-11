@@ -1,3 +1,4 @@
+
 import logo from './logo.svg';
 import './App.css';
 import Home2 from './pages/Home2';
@@ -8,9 +9,11 @@ import Details from './pages/Details';
 import { Route, Routes } from 'react-router-dom'
 
 import React, { useState } from 'react';
+import Createbasket from './components/Createbasket';
+
 
 function App() {
-  const [basket, setBasket] = useState('')
+  const [basket, setBasket] = useState("");
 
   return (
     <div className="App">
@@ -23,13 +26,13 @@ function App() {
           <Route path="/" element={<Home basket={basket} setBasket={setBasket} />} />
           <Route path="/details" element={<Details basket={basket} setBasket={setBasket} />} />
 
+
           <Route path="/create" element={<Create />} />
+          <Route path="/createbasket" element={<Createbasket />} />
         </Routes>
       </div>
-
     </div>
-  )
+  );
 }
-
 
 export default App;

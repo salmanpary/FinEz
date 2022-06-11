@@ -10,7 +10,10 @@ import '../assets/3d.css'
 
 function Home({ setBasket, basket }) {
     const [disabled, setDisabled] = useState(false)
-    const data = [
+
+    const [showbasket, setShowbasketdata] = useState()
+    const[data,setdata]  =useState( [
+
         {
             name: 'Bluechips',
             desc: 'This basket consists of 50% BTC and 50% ETH, These are higher marketcap coins',
@@ -29,7 +32,7 @@ function Home({ setBasket, basket }) {
             desc2: 'Take premium sub to access this bucket',
             title: 'Premium'
         }
-    ]
+    ])
     const [ar, setar] = useState({})
     useEffect(() => {
         let priceIntervel = setInterval(() => {
@@ -43,9 +46,31 @@ function Home({ setBasket, basket }) {
 
     }, [])
 
+useEffect(()=>{
+    axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
+
+},[])
+    const basketHandler = () => {
+
+    const temp=[...data]
+    temp.push({
+        name:showbasket[0].title,
+        desc:showbasket[0].description,
+        desc2:showbasket[0].description,
+        title:showbasket[0].title
+    })
+    setdata(temp)
+        
+       
+       
+    }
+
+
     return (
         <div>
+
             <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg box_3d" >
+
                 <div className="">
                     <h3 className='text-2xl text-blue-800 font-bold'>Overview</h3>
                     <h5 className='text-md  text-gray-600'>Markets | investments</h5>
@@ -82,16 +107,24 @@ function Home({ setBasket, basket }) {
                         </>
                     ))}
 
+
                 </div>
+                
                 <div className="Home_container2 p-6 ml-10 mr-4 text-left rounded box_3d">
                     <h3 className='font-bold mb-4'>How to start investing in a Basket</h3>
                     <h5 className='mb-5 flex items-center'><GoVerified className='text mt-1 text-green-400' /> &nbsp; Viewed Home</h5>
                     <h5 className='mb-5 flex items-center'><ImBookmarks className='text mt-1 ' /> &nbsp; Watchlist a Basket</h5>
                     <h5 className='mb-5 flex items-center'><BsFillBriefcaseFill className='text mt-1 ' /> &nbsp; Invest in Basket</h5>
                     <h5 className='mb-5 flex items-center'><GiCoffeeMug className='text mt-1 ' /> &nbsp; Start SIP</h5>
+
                 </div>
+
             </div>
+            <button className='btn' onClick={basketHandler}>SHOW MORE</button>
+
+
         </div>
+
     )
 }
 
