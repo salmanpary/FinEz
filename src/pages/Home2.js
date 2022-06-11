@@ -10,8 +10,8 @@ const Home2 = () => {
             <p className='heading'>Invest and Grow</p>
             <p className='subhead'>Build your diversified portfolio with us</p><br></br>
             <button onClick={''} className='btn'>SignUp with Binance</button>
-            <button onClick={''} className='btn2 btn'>Connect to Wallet</button>
-            <img src={logo2}></img>
+            <button onClick={''} className='btn2 btn'>Login with Binance</button>
+            <img className='ill' src={logo2}></img>
         </div>
     )
 }

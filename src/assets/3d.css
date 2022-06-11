@@ -36,3 +36,32 @@
     transition: ease 400ms;
     transform: scale(1.04);
 }
+
+.white_3d {
+    background: #FFFFFF;
+    box-shadow: 4px 4px 13px rgba(255, 255, 255, 0.281), inset 2px 2px 15px rgba(17, 17, 137, 0.313);
+}
+
+.white_3d:hover {
+    transition: ease 300ms;
+    transform: scale(1.04);
+}
+
+.blue_3d_nav {
+    background-color: rgb(17, 17, 137);
+    box-shadow: 4px 4px 12px rgba(17, 17, 137, 0.33), inset 4px 4px 14px rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+}
+
+.nav_btn:hover {
+    transition: ease 200ms;
+    transform: scale(1.04);
+}
+
+.piggy {
+    height: 45px;
+    position: relative;
+    margin-top: -24px;
+    margin-left: -40px;
+    margin-right: 20px;
+}

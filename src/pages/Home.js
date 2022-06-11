@@ -12,7 +12,7 @@ function Home({ setBasket, basket }) {
     const [disabled, setDisabled] = useState(false)
 
     const [showbasket, setShowbasketdata] = useState()
-    const[data,setdata]  =useState( [
+    const [data, setdata] = useState([
 
         {
             name: 'Bluechips',
@@ -34,7 +34,7 @@ function Home({ setBasket, basket }) {
         }
     ])
     const [ar, setar] = useState({})
-    const [length,setlength]=useState(0)
+    const [length, setlength] = useState(0)
     useEffect(() => {
         let priceIntervel = setInterval(() => {
             axios.get('https://fineazy.herokuapp.com/getprice/5').then(res => { setar(res.data) }).catch(err => { console.log(err) })
@@ -47,31 +47,31 @@ function Home({ setBasket, basket }) {
 
     }, [])
 
-useEffect(()=>{
-    axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
+    useEffect(() => {
+        axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
 
-},[])
+    }, [])
     const basketHandler = () => {
-    setlength(showbasket.length)
-    const temp=[...data]
-    for(let i=0;i<showbasket.length;i++){
-    temp.push({
-        name:showbasket[i].title,
-        desc:showbasket[i].description,
-        desc2:showbasket[i].long_description,
-        title:showbasket[i].title
-    })
-    setdata(temp)
-}
-       
-       
+        setlength(showbasket.length)
+        const temp = [...data]
+        for (let i = 0; i < showbasket.length; i++) {
+            temp.push({
+                name: showbasket[i].title,
+                desc: showbasket[i].description,
+                desc2: showbasket[i].long_description,
+                title: showbasket[i].title
+            })
+            setdata(temp)
+        }
+
+
     }
 
 
     return (
         <div>
 
-            <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg box_3d" >
+            <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg box_3d mt-12" >
 
                 <div className="">
                     <h3 className='text-2xl text-blue-800 font-bold'>Overview</h3>
@@ -111,7 +111,7 @@ useEffect(()=>{
 
 
                 </div>
-                
+
                 <div className="Home_container2 p-6 ml-10 mr-4 text-left rounded box_3d">
                     <h3 className='font-bold mb-4'>How to start investing in a Basket</h3>
                     <h5 className='mb-5 flex items-center'><GoVerified className='text mt-1 text-green-400' /> &nbsp; Viewed Home</h5>
