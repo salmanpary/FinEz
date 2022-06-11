@@ -33,6 +33,7 @@ function Home({ setBasket, basket }) {
             title: 'Premium'
         }
     ])
+    const [apidata, setApidata] = useState([])
     const [ar, setar] = useState({})
     const [length, setlength] = useState(0)
     useEffect(() => {
@@ -53,7 +54,9 @@ function Home({ setBasket, basket }) {
     }, [])
     const basketHandler = () => {
         setlength(showbasket.length)
-        const temp = [...data]
+
+        const temp = [...apidata]
+
         for (let i = 0; i < showbasket.length; i++) {
             temp.push({
                 name: showbasket[i].title,
@@ -61,7 +64,10 @@ function Home({ setBasket, basket }) {
                 desc2: showbasket[i].long_description,
                 title: showbasket[i].title
             })
-            setdata(temp)
+
+            // setdata(temp)
+            setApidata(temp)
+
         }
 
 
@@ -101,7 +107,9 @@ function Home({ setBasket, basket }) {
             <h3 className='text-3xl mb-8 font-bold text-left ml-20 text-blue-800 '>Investment Baskets</h3>
             <div className="flex lg:ml-20">
                 <div className="">
-
+                    <div className="text-2xl my-8 text-center font-semibold">
+                        Trending
+                    </div>
                     {data.map((datas) => (
                         <>
                             {datas.name === 'Bluechips' ? () => { setDisabled(false) } : () => setDisabled(true)}
@@ -109,8 +117,23 @@ function Home({ setBasket, basket }) {
                         </>
                     ))}
 
+                    <div className="">
+                        <div className="text-2xl my-8 text-center font-semibold">
+                            Public Favourites
+                        </div>
+
+                        {apidata.map((datas) => (
+                            <>
+                                {/* {datas.name === 'Bluechips' ? () => { setDisabled(false) } : () => setDisabled(true)} */}
+                                <Investment disabled={disabled} setBasket={setBasket} basket={basket} title={datas.name} des={datas.desc} tag={datas.title} tagdes={datas.desc2} />
+                            </>
+                        ))}
+
+
+                    </div>
 
                 </div>
+
 
                 <div className="Home_container2 p-6 ml-10 mr-4 text-left rounded box_3d">
                     <h3 className='font-bold mb-4'>How to start investing in a Basket</h3>

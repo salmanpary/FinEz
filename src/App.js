@@ -6,13 +6,16 @@ import Home from './pages/Home';
 import Create from './components/Create'
 import Navbar from './components/Navbar';
 import Details from './pages/Details';
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
+import Signin from './pages/Signin'
+import Login from './pages/Login';
 
 import React, { useState } from 'react';
 import Createbasket from './components/Createbasket';
 
 
 function App() {
+
   const [basket, setBasket] = useState("");
 
   return (
@@ -21,12 +24,11 @@ function App() {
       <Navbar />
       <div className="pt-16">
         <Routes>
-          <Route path="/home2" element={<Home2 />} />
-
-          <Route path="/" element={<Home basket={basket} setBasket={setBasket} />} />
-          <Route path="/details" element={<Details basket={basket} setBasket={setBasket} />} />
-
-
+          <Route path="/login" element={<Login />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/" element={<Home2 />} exact />
+          <Route path="/home2" exact element={<Home basket={basket} setBasket={setBasket} />} />
+          <Route path="/details" exact element={<Details basket={basket} setBasket={setBasket} />} />
           <Route path="/create" element={<Create />} />
           <Route path="/createbasket" element={<Createbasket />} />
         </Routes>
@@ -36,3 +38,11 @@ function App() {
 }
 
 export default App;
+
+const ProtectedRoute = ({ user, children }) => {
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+}
