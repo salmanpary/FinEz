@@ -58,6 +58,7 @@ const Profile = () => {
                     <button type="submit" className='mt-4 w-[10rem] py-2 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-xl font-semibold text-xl' > Sell </button>
 
                 </div>
+                <Invite />
             </div>
             <div className="col-span-2">
 
@@ -79,9 +80,9 @@ function Card({ data, i }) {
   
     return (
         <div className="flex Home_overview bg-slate-100 p-8 rounded-lg box_3d items-center justify-between mt-8 ">
-         <div className="flex">
+         <div className="flex items-center">
          
-          <img src={bnbimg} className="w-6 h-6 " alt="" />
+          {/* <img src={bnbimg} className="w-12 h-12 flex items-center mr-2" alt="" /> */}
   <h2 className='text-xl font-bold'>{data[i]?.name}</h2>
          </div>
             <div className="">
