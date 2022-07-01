@@ -76,13 +76,16 @@ const Profile = () => {
 }
 
 function Card({ data, i }) {
-    console.log()
+
+    const icon = data[i]?.name.slice(0,3).toLowerCase()
+  const imgLink = `https://cryptoicons.org/api/icon/${icon}/200`
+    console.log(imgLink)
   
     return (
         <div className="flex Home_overview bg-slate-100 p-8 rounded-lg box_3d items-center justify-between mt-8 ">
          <div className="flex items-center">
          
-          {/* <img src={bnbimg} className="w-12 h-12 flex items-center mr-2" alt="" /> */}
+          <img src={imgLink} className="w-12 h-12 flex items-center mr-2" alt="" />
   <h2 className='text-xl font-bold'>{data[i]?.name}</h2>
          </div>
             <div className="">
