@@ -14,7 +14,8 @@ import React, { useState } from 'react';
 import Createbasket from './components/Createbasket';
 import Mybasket from './pages/Mybasket';
 import Explore from './pages/Explore';
-
+import Profile from './pages/Profile';
+import Friends from './pages/Friends';
 
 function App() {
 
@@ -32,9 +33,11 @@ function App() {
           <Route path="/home2" exact element={<Home basket={basket} setBasket={setBasket} />} />
           <Route path="/details" exact element={<Details basket={basket} setBasket={setBasket} />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/mybasket" element={<Mybasket basket={basket} setBasket={setBasket}/>} />
+          <Route path="/mybasket" element={<Mybasket basket={basket} setBasket={setBasket} />} />
           <Route path="/createbasket" element={<Createbasket />} />
-          <Route path="/explore" element={<Explore/>} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/Friends" element={<Friends />} />
         </Routes>
       </div>
     </div>

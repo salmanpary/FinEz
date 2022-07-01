@@ -9,14 +9,9 @@ p {
     margin-left: 120px;
 }
 
+
 .ill {
-    display: flex;
-    height: 500px;
-    float: right;
-    margin-top: 70px;
-    top: 10px;
-    position: absolute;
-    right: 0;
+
 }
 
 .heading {
