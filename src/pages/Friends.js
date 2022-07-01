@@ -1,6 +1,11 @@
 import React from "react";
+import { Route} from "react-router-dom";
 import { AiFillLock } from "react-icons/ai";
 const Friends = () => {
+    const redirect=()=>{
+       window.location.replace("https://paytm.me/6-FJJsF")
+
+    }
   return (
     <>
     <div className="m-10">
@@ -8,7 +13,7 @@ const Friends = () => {
       <h1 className="font-bold text-3xl">Expert Friends</h1>
       <div className="">Investment details</div>
       <div className="grid grid-cols-2 gap-7">
-        <div className="salman bg-slate-100  p-8  rounded-lg box_3d mt-12 h-60">
+        <div className="salman bg-slate-100  p-8  rounded-lg box_3d mt-12 h-60 hover:bg-slate-200 hover:cursor-pointer" onClick={redirect}>
           <div className="grid grid-cols-3 m-10">
           <img
               src="https://bakejobs.com/wp-content/uploads/2020/05/dummy-man-png-2-1.png"
@@ -33,7 +38,7 @@ const Friends = () => {
             <div>3%</div>
           </div>
         </div>
-        <div className="vishnu bg-slate-100  p-8  rounded-lg box_3d mt-12">
+        <div className="vishnu bg-slate-100  p-8  rounded-lg box_3d mt-12 hover:bg-slate-200 hover:cursor-pointer">
         <div className="grid grid-cols-3 m-10">
           <img
               src="https://bakejobs.com/wp-content/uploads/2020/05/dummy-man-png-2-1.png"
@@ -58,7 +63,7 @@ const Friends = () => {
             <div>3%</div>
           </div>
         </div>
-        <div className="adam bg-slate-100  p-8  rounded-lg box_3d mt-12">
+        <div className="adam bg-slate-100  p-8  rounded-lg box_3d mt-12 hover:bg-slate-200 hover:cursor-pointer">
         <div className="grid grid-cols-3 m-10">
           <img
               src="https://bakejobs.com/wp-content/uploads/2020/05/dummy-man-png-2-1.png"
@@ -83,7 +88,7 @@ const Friends = () => {
             <div>3%</div>
           </div>
         </div>
-        <div className="lisa bg-slate-100  p-8  rounded-lg box_3d mt-12">
+        <div className="lisa bg-slate-100  p-8  rounded-lg box_3d mt-12 hover:bg-slate-200 hover:cursor-pointer">
         <div className="grid grid-cols-3 m-10">
           <img
               src="https://bakejobs.com/wp-content/uploads/2020/05/dummy-man-png-2-1.png"
