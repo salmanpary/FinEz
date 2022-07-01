@@ -8,8 +8,7 @@
 p {
     margin-left: 120px;
 }
-
-img {
+.ill{
     display: flex;
     height: 500px;
     float: right;
