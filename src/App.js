@@ -15,7 +15,7 @@ import Createbasket from './components/Createbasket';
 import Mybasket from './pages/Mybasket';
 import Explore from './pages/Explore';
 import Profile from './pages/Profile';
-
+import Friends from './pages/Friends';
 
 function App() {
 
@@ -37,6 +37,7 @@ function App() {
           <Route path="/createbasket" element={<Createbasket />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/Friends" element={<Friends />} />
         </Routes>
       </div>
     </div>
