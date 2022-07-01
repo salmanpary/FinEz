@@ -75,7 +75,7 @@ function Navbar() {
                     {data.address.slice(0, 8)}...
                 </> : <>
                     {/* <h5 className='mx-2 cursor-pointer border-[1px] border-black px-1' onClick={btnhandler}> Connect to wallet</h5> */}
-                    <button className=' white_3d   text-black p-3 px-4 mx-4 text-xs rounded-xl font-bold ' type="submit" disabled={true} onClick={btnhandler}>Connect wallet</button>
+                    <button className=' white_3d   text-black p-3 px-4 mx-4 text-xs cursor-not-allowed rounded-xl font-bold ' type="submit" disabled={true} onClick={btnhandler}>Connect wallet</button>
                 </>}
                 <h5 className='white_3d   text-black p-3 px-4 mr-0 text-xs rounded-xl font-bold '>Investments</h5>
             </div>
