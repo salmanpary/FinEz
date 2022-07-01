@@ -1,5 +1,5 @@
 import React from 'react'
-import Friends from '../components/Friends'
+import Friends from '../components/FriendsFollow'
 
 const Explore = () => {
   return (

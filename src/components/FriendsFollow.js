@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Friends = () => {
+const FriendsFollow = () => {
     const [btntext, setbtntext] = useState("FOLLOW")
     const [btnbgcolor, setbtnbgcolor] = useState("bg-blue-700")
     const [btnhover, setbtnhover] = useState("bg-blue-500")
@@ -38,4 +38,4 @@ const Friends = () => {
     )
 }
 
-export default Friends
+export default FriendsFollow
