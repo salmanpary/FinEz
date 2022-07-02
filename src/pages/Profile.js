@@ -104,7 +104,7 @@ const Profile = () => {
 function Card({ data, i }) {
 
     const icon = data[i]?.name.slice(0, 3).toLowerCase()
-    const imgLink = `https://cryptoicons.org/api/icon/${icon}/200`
+    const imgLink = `https://cryptoicons.org/api/color/${icon}/200`
     console.log(imgLink)
 
     return (
