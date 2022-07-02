@@ -36,8 +36,8 @@ function Login() {
     }
     return (
         <div className='flex mt-24 justify-center items-center'>
-            <div class="p-5 w-1/4 box_3d max-w-xs">
-                <form class="bg-white pt-6 pb-8 mb-4">
+            <div class="p-5 w-1/4 bg-white box_3d  max-w-xs">
+                <form class=" pt-6 pb-8 mb-4">
                     <div class="mb-4">
                         <label class="block text-blue-800 text-sm font-bold mb-2" for="username">
                             Email

@@ -76,3 +76,11 @@ p {
     /* color: black; */
     transition: 0.3s;
 }
+
+.portfolio_cards:hover {
+    /* background-color: rgb(49, 19, 74); */
+    background: rgb(39, 51, 89, 0.4);
+    background-image:
+        radial-gradient(at 0% 0%, rgb(72, 26, 72) 0, transparent 80%);
+    transition: 0.3s;
+}
