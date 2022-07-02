@@ -6,7 +6,7 @@ import { storeview } from "../features/viewprofile/view";
 const ViewProfile = ({ data }) => {
     const friend = useSelector(state => state.friends)
     const view = useSelector(state => state.view)
-   console.log(view,'kle')
+//    console.log(view,'kle')
     
 
     // var link = "https://fineazy-backend.herokuapp.com/auth/specific_user"

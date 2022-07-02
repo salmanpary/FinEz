@@ -92,7 +92,7 @@ const Friends = () => {
           {followingData?.map((data) => (
             <div onClick={() => {
               dispatch(storeview(data))
-              console.log(data,'njanm')
+              // console.log(data,'njanm')
               navigate('/viewprofile')
             }} className=""><FriendsFollow data={data} f={false} /></div>
           ))}
