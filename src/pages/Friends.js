@@ -112,11 +112,12 @@ const Friends = () => {
           Following
         </h1>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 p-10">
           {followingData?.map((data) => (
             <div
               onClick={() => {
-                dispatch(storeinfo(data));
+                dispatch(storeview(data));
+                console.log(data, "njanm");
                 navigate("/viewprofile");
               }}
               className=""
@@ -133,45 +134,38 @@ const Friends = () => {
 export default Friends;
 
 function Portfolio({ name, invested_value, overall_gain, one_day_gain }) {
-  const redirect = () => {
-    window.location.replace("https://rzp.io/l/i6vbzGnC");
-  };
+  
+  
   return (
-    <form>
-      <script
-        src="https://checkout.razorpay.com/v1/payment-button.js"
-        data-payment_button_id="pl_JoNQ5NdVhMALOX"
-        async
-      >
-        {" "}
-      </script>
-      <div
-        className="salman white-glassmorphism portfolio_cards p-8  rounded-lg box_3d mt-12 h-60  hover:cursor-pointer m-5"
-        onClick={redirect}
-      >
-        <div className="grid grid-cols-3 m-5">
-          <img
-            src="https://www.pngitem.com/pimgs/m/419-4196791_transparent-confused-man-png-default-profile-png-download.png"
-            alt=""
-            className="h-16 w-16 rounded-full"
-          />
+    <a href="https://rzp.io/l/i6vbzGnC">
 
-          <div className="name font-medium text-lg text-white">{name}</div>
+    <div
+      className="salman white-glassmorphism portfolio_cards p-8  rounded-lg box_3d mt-12 h-60  hover:cursor-pointer m-5"
+    >
+      <div className="grid grid-cols-3 m-5">
+        <img
+          src="https://www.pngitem.com/pimgs/m/419-4196791_transparent-confused-man-png-default-profile-png-download.png"
+          alt=""
+          className="h-16 w-16 rounded-full"
+        />
 
-          <FaLock className="ml-32 fill-red-600" />
-        </div>
-        <div className="grid grid-cols-3 mt-10">
-          <div className="value text-gray-300 text-sm">Invested Value</div>
-          <div className="overallgain text-gray-300 text-sm">Overall Gain</div>
-          <div className="1day text-gray-300 text-sm">1 day gain</div>
-          <div></div>
-        </div>
-        <div className="grid grid-cols-3">
-          <div className="no1 text-white font-medium">{invested_value}usdt</div>
-          <div className="text-green-400 font-semibold">{overall_gain}%</div>
-          <div className="text-blue-500 font-semibold">{one_day_gain}%</div>
-        </div>
+        <div className="name font-medium text-lg text-white">{name}</div>
+
+        <FaLock className="ml-32 fill-red-600" />
       </div>
-    </form>
+      <div className="grid grid-cols-3 mt-10">
+        <div className="value text-gray-300 text-sm">Invested Value</div>
+        <div className="overallgain text-gray-300 text-sm">Overall Gain</div>
+        <div className="1day text-gray-300 text-sm">1 day gain</div>
+        <div></div>
+      </div>
+      <div className="grid grid-cols-3">
+        <div className="no1 text-white font-medium">{invested_value}usdt</div>
+        <div className="text-green-400 font-semibold">{overall_gain}%</div>
+        <div className="text-blue-500 font-semibold">{one_day_gain}%</div>
+      </div>
+    </div>
+    </a>
+
   );
 }
