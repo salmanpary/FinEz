@@ -7,7 +7,7 @@ const initialState={
     "total_amount":" "
 }
 const viewSlice=createSlice({
-    name:"viewprofile",
+    name:"view",
     initialState,
     reducers:{
         storeview:(state,action)=>{
