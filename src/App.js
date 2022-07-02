@@ -13,7 +13,7 @@ import Login from './pages/Login';
 import React, { useState } from 'react';
 import Createbasket from './components/Createbasket';
 import Mybasket from './pages/Mybasket';
-import Explore from './pages/Explore';
+import Explore from './components/Explore';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 
