@@ -63,26 +63,26 @@ function Details() {
                         <h4 className='text-xl text-green-500 font-bold'>14.4%</h4>
                     </div>
                 </div>
-                <fieldset className='border-4 w-10 my-auto  p-4  border-blue-800 rounded-2xl'>
-                    <legend className='ml-4 p-2 font-bold'><h3>Popular</h3></legend>
-                    <h4 className='mb-2'>We have over 50k investors for this basket</h4>
+                <fieldset className='border-4 w-10 my-auto  p-4  border-blue-600 rounded-2xl'>
+                    <legend className='ml-4 p-2 font-bold text-white'><h3>Popular</h3></legend>
+                    <h4 className='mb-2 text-white'>We have over 50k investors for this basket</h4>
                 </fieldset>
             </div>
             <div className="flex ml-[15rem] mt-12">
                 <div className="">
-                    <h3 className='text-2xl font-semibold '>Overview</h3>
+                    <h3 className='text-3xl font-semibold text-gradient'>Overview</h3>
 
-                    <h4 className='text-xl mt-4'>About the Basket</h4>
-                    <p className=' mt-1 ml-0 p-1'>The scheme invests in the higher market cap coins Bitcoin and Ethereum</p>
+                    <h4 className='text-xl mt-4 text-white'>About the Basket</h4>
+                    <p className=' mt-1 ml-0 p-1 text-gray-200'>The scheme invests in the higher market cap coins Bitcoin and Ethereum</p>
                 </div>
                 <div className="ml-12 box_3d p-5 mb-10">
-                    <h5 className='text-xs'>Minimum Investment amount</h5>
-                    <h3 className='text-xl mt-4 font-bold'> 20 USDT</h3>
-                    <h6 className='mt-4 text-sm'>Get free access forever</h6>
-                    <h5 className='text-sm font-bold'>See more benefits</h5>
-                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 blue_3d text-l text-white' onClick={() => setShowModal(!modal)}> Invest Now</button> <br />
+                    <h5 className='text-xs text-white'>Minimum Investment amount</h5>
+                    <h3 className='text-xl mt-4 font-bold text-white ml-12'> 20 USDT</h3>
+                    <h6 className='mt-4 text-sm text-gray-200'>Get free access forever</h6>
+                    <h5 className='text-sm font-bold text-white'>See more benefits</h5>
+                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 blue_3d text-l text-white ml-2' onClick={() => setShowModal(!modal)}> Invest Now</button> <br />
                     {/* <button type="submit" className='mt-4 w-[10rem] py-2 border-2'>Add to Watchlist</button> <br /> */}
-                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 red_3d text-l text-white' onClick={sell}>Sell</button>
+                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 red_3d text-l text-white ml-2' onClick={sell}>Sell</button>
                 </div>
                 {modal ? <Modal setShowModal={setShowModal} /> : <></>}
             </div>
