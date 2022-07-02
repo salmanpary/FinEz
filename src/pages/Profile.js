@@ -47,7 +47,7 @@ const Profile = () => {
                         <h3 className='text-xl '>Invested Value</h3><h3 className='text-lg'>{invested?.invested_amount} BUSD</h3>
                     </div>
                     <div className="flex justify-between mx-12 mt-12">
-                        <h3 className='text-xl '>Overall gain</h3><h3 className='text-lg'>{invested?.sum_percentage}</h3>
+                        <h3 className='text-xl '>Overall gain</h3><h3 className='text-lg'>{invested?.sum_percentage.slice(1)}</h3>
                     </div>
                     <div className="flex justify-between mx-12 mt-12">
                         <h3 className='text-xl '>1 D gain</h3><h3 className='text-xl'>{change1d} </h3>
