@@ -78,7 +78,7 @@ function Navbar() {
                     {/* <h5 className='mx-2 cursor-pointer border-[1px] border-black px-1' onClick={btnhandler}> Connect to wallet</h5> */}
                     <button className=' white-glassmorphism   text-white p-3 px-5 mx-4 text-xs cursor-not-allowed rounded-xl font-semibold ' type="submit" disabled={true} onClick={btnhandler}>Connect wallet</button>
                 </>}
-                <Link to='/profile'><h5 className=' white-glassmorphism text-white p-3 px-5 mr-0 text-xs rounded-xl font-semibold '>Profile</h5></Link>
+                <Link to='/profile'><h5 className=' white-glassmorphism text-white p-3 px-11 mr-0 text-xs rounded-xl font-semibold '>Profile</h5></Link>
             </div>
         </div>
     )
