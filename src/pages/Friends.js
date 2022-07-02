@@ -2,7 +2,8 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { FaLock } from "react-icons/fa";
 import '../assets/glassmorphism.css';
-import Explore from "./Explore";
+import Explore from "../components/Explore";
+import FriendsFollow from "../components/FriendsFollow";
 const Friends = () => {
   const redirect = () => {
     window.location.replace("https://paytm.me/6-FJJsF")
@@ -120,7 +121,19 @@ const Friends = () => {
           </div>
         </div>
       </div>
-      <Explore />
+
+ 
+    <Explore>
+        <FriendsFollow/>
+    
+        </Explore>
+    <div className="following">
+        <h1 className="font-bold text-3xl">Following</h1>
+
+    </div>
+
+     
+
 
     </>
   );
