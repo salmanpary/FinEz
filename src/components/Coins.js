@@ -58,7 +58,7 @@ const Coins = () => {
             lastprice={items?.["1"]?.price.substring(0, 7)}
             hrchange={items?.["1"]?.priceChangePercent}
             volume={items?.["1"]?.volume.substring(0, 9)}
-            ticker="BNB"
+            ticker="BTC"
           />
           <Coin
             image="https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@bea1a9722a8c63169dcc06e86182bf2c55a76bbc/32/color/eth.png"
@@ -66,7 +66,7 @@ const Coins = () => {
             lastprice={items?.["2"]?.price.substring(0, 7)}
             hrchange={items?.["2"]?.priceChangePercent}
             volume={items?.["2"]?.volume.substring(0, 9)}
-            ticker="BNB"
+            ticker="ETH"
           />
           <Coin
             image="https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@bea1a9722a8c63169dcc06e86182bf2c55a76bbc/32/color/sol.png"
@@ -74,7 +74,7 @@ const Coins = () => {
             lastprice={items?.["3"]?.price.substring(0, 7)}
             hrchange={items?.["3"]?.priceChangePercent}
             volume={items?.["3"]?.volume.substring(0, 9)}
-            ticker="BNB"
+            ticker="SOL"
           />
           <Coin
             image="https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@bea1a9722a8c63169dcc06e86182bf2c55a76bbc/32/color/doge.png"
@@ -82,7 +82,7 @@ const Coins = () => {
             lastprice={items?.["4"]?.price.substring(0, 7)}
             hrchange={items?.["4"]?.priceChangePercent}
             volume={items?.["4"]?.volume.substring(0, 9)}
-            ticker="BNB"
+            ticker="DOGE"
           />
           <br></br>
         </div>
