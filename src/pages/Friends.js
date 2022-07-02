@@ -7,7 +7,7 @@ import FriendsFollow from "../components/FriendsFollow";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { storeinfo } from '../features/friends/friends'
-
+import { storeview } from "../features/viewprofile/view";
 import axios from "axios";
 import { useState } from "react";
 const Friends = () => {
@@ -138,8 +138,6 @@ function Portfolio() {
           <div className="text-green-400 font-semibold">60%</div>
           <div className="text-blue-500 font-semibold">3%</div>
         </div>
-
-        <button>go</button>
       </div>
     </form>
   )
