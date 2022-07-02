@@ -4,11 +4,12 @@ import { FaLock } from "react-icons/fa";
 import '../assets/glassmorphism.css';
 import Explore from "../components/Explore";
 import FriendsFollow from "../components/FriendsFollow";
+import { useSelector,useDispatch } from 'react-redux'
+import {storeinfo} from '../features/friends/friends'
 const Friends = () => {
   const redirect = () => {
     window.location.replace("https://paytm.me/6-FJJsF")
-
-  }
+}
   return (
     <>
       <div className="m-10">
