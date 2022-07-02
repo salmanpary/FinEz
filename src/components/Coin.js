@@ -6,7 +6,7 @@ const Coin = ({ image, name, lastprice, hrchange, volume, ticker }) => {
       <div className='flex '>
         <img src={image} alt="" />
         <div className="name ml-2 mt-1">{name}</div>
-        <div className="ticker text-gray-300 mt-1">{ticker}</div>
+        <div className="ticker text-gray-300 mt-1 ml-2">{ticker}</div>
 
       </div>
 
