@@ -68,3 +68,11 @@ p {
     color: rgb(42, 42, 118);
     transform: scale(1.01, 1.01);
 }
+
+.coins:hover {
+    background-color: rgb(69, 34, 97);
+    background-image:
+        radial-gradient(at 0% 0%, rgb(72, 26, 72) 0, transparent 80%);
+    /* color: black; */
+    transition: 0.3s;
+}
