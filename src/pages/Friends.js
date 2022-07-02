@@ -19,8 +19,8 @@ const Friends = () => {
   const [follow, setFollow] = useState()
   const [following, setFollowing] = useState()
   const [followingData, setFollowingData] = useState()
-  const [expert,setExpert] = useState()
-  const [ldata,setLdata] = useState()
+  const [expert, setExpert] = useState()
+  const [ldata, setLdata] = useState()
 
 
 
@@ -62,18 +62,18 @@ const Friends = () => {
     }
     console.log(temp, 'temp')
   }
-  const experts = async ()=>{
+  const experts = async () => {
     const res = await axios.get('https://fineazy-backend.herokuapp.com/getprice/user1')
-    console.log(res.data,'hereiam')
+    console.log(res.data, 'hereiam')
     setExpert(res.data)
-   }
-   const lisadata= async ()=>{
+  }
+  const lisadata = async () => {
     const res = await axios.get('https://fineazy-backend.herokuapp.com/auth/lisa')
-    console.log(res.data,'hereiaml')
+    console.log(res.data, 'hereiaml')
     res.data.name = 'Lisa'
     res.data.followers = 5
     setLdata(res.data)
-   }
+  }
   useEffect(() => {
     fetch()
     fetchFollowing()
@@ -85,7 +85,7 @@ const Friends = () => {
 
   }, [following])
 
- 
+
 
   return (
     <>
@@ -95,14 +95,14 @@ const Friends = () => {
         </h1>
         <div className="ml-6 text-white">Investment details</div>
         <div className="grid grid-cols-2 gap-4">
-          {expert?.map((data)=>(
-            <Portfolio data={data}/>
+          {expert?.map((data) => (
+            <Portfolio data={data} />
           ))}
         </div>
       </div>
       <h1 className="text-3xl font-bold ml-14 mt-16 text-blue-600">Follow</h1>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10 ">
         {follow?.map((data) => (
           <FriendsFollow data={data} f={true} />
         ))}
@@ -121,13 +121,13 @@ const Friends = () => {
               navigate('/viewprofile')
             }} className=""><FriendsFollow data={data} f={false} /></div>
           ))}
-          {ldata && 
-          <div onClick={()=>navigate('/prol')} className="">
+          {ldata &&
+            <div onClick={() => navigate('/prol')} className="">
 
-          {/* <FriendsFollow data={ldata} f={false} /> */}
-          </div>
+              {/* <FriendsFollow data={ldata} f={false} /> */}
+            </div>
           }
-          
+
         </div>
       </div>
     </>
@@ -136,7 +136,7 @@ const Friends = () => {
 
 export default Friends;
 
-function Portfolio({data}) {
+function Portfolio({ data }) {
   const redirect = () => {
 
     window.location.replace("https://rzp.io/l/i6vbzGnC")
@@ -165,7 +165,7 @@ function Portfolio({data}) {
         <div className="grid grid-cols-3">
           <div className="no1 text-white font-medium">{data?.invested_amount}usdt</div>
           <div className="text-green-400 font-semibold">{data?.total_amount}%</div>
-          <div className="text-blue-500 font-semibold">{Number(data.total_amount-3)}%</div>
+          <div className="text-blue-500 font-semibold">{Number(data.total_amount - 3)}%</div>
         </div>
       </div>
     </a>
