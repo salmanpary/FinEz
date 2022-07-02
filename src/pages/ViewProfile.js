@@ -2,38 +2,46 @@ import React from 'react'
 import Profilecomp from '../components/Profilecomp'
 import Profile from './Profile'
 import { useSelector, useDispatch } from 'react-redux'
+import { AiOutlineCheckCircle } from 'react-icons/ai'
 import { storeview } from "../features/viewprofile/view";
 const ViewProfile = ({ data }) => {
     const friend = useSelector(state => state.friends)
     const view = useSelector(state => state.view)
-//    console.log(view,'kle')
-    
+    //    console.log(view,'kle')
+
 
     // var link = "https://fineazy-backend.herokuapp.com/auth/specific_user"
     return (
 
         <div className='mt-12 ml-4'>
 
-            <div className="bg-white mx-12 rounded-xl py-12 mb-8 px-12 grid grid-cols-2">
-               <div className="flex items-center col-span-1 border-r-2	">
-               <img
-                    src="https://www.pngitem.com/pimgs/m/419-4196791_transparent-confused-man-png-default-profile-png-download.png"
-                    alt=""
-                    className="h-32 w-32 rounded-full"
-                />
-                <div className="text-5xl font-bold ml-20">
-                    {view.name}
-                    <div className="text-2xl mt-8">Following.</div>
+            <div className="bg-white blue-glassmorphism mx-12 rounded-xl py-12 mb-8 px-12 grid grid-cols-2">
+                <div className="flex items-center col-span-1 border-r-2	">
+                    <img
+                        src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWFsZSUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
+                        alt=""
+                        className="h-32 w-32 rounded-full"
+                    />
+                    <div className="text-5xl font-bold ml-20 text-white">
+                        {view.name}<br></br>
+                        {/* <div className="text-lg mt-8 rounded-2xl border-2"> Following</div> */}
+                        <button className='blue_3d mt-4 flex text-xs text-white px-5 cursor-default text-center'><span className='mt-0.5'>FOLLOWING</span><AiOutlineCheckCircle className='m-1'></AiOutlineCheckCircle></button>
+                    </div>
                 </div>
-               </div>
-               <div className="col-span-1 text-2xl font-semibold ml-20 flex flex-col justify-evenly  ">
-               <h3 className='mb-4'> Followers : {view.followers}</h3>
-               <h3> Following : {view.following} </h3>
-               </div>
+                <div className="text-white text-2xl font-medium ml-14 mt-8 flex flex-row justify-evenly">
+                    <div>
+                        <h3 className='mb-1 text-sm'> FOLLOWERS</h3>
+                        <h3 className='text-blue-500 font-semibold'>{view.followers}</h3>
+                    </div>
+                    <div>
+                        <h3 className='mb-1 text-sm'> FOLLOWING</h3>
+                        <h3 className='text-blue-500 font-semibold'>{view.following}</h3>
+                    </div>
+                </div>
             </div>
 
             <div className="grid grid-cols-3">
-                <div className="col-span-1">
+                <div className="col-span-1 ml-12 mb-12">
                     <Profilecomp invested={view} />
 
                 </div>
