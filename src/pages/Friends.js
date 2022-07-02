@@ -2,6 +2,7 @@ import React from "react";
 import { Route} from "react-router-dom";
 import { AiFillLock } from "react-icons/ai";
 import Explore from "./Explore";
+import FriendsFollow from "../components/FriendsFollow";
 const Friends = () => {
     const redirect=()=>{
        window.location.replace("https://paytm.me/6-FJJsF")
@@ -116,7 +117,13 @@ const Friends = () => {
         </div>
       </div>
     </div>
-    <Explore/>
+    <Explore>
+    
+        </Explore>
+    <div className="following">
+        <h1 className="font-bold text-3xl">Following</h1>
+
+    </div>
 
     </>
   );
