@@ -16,6 +16,7 @@ import Mybasket from './pages/Mybasket';
 import Explore from './components/Explore';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
+import ViewProfile from './pages/ViewProfile';
 
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/friends" element={<Friends />} />
+          <Route path="/:data" element={<ViewProfile />} />
+          
         </Routes>
       </div>
     </div>

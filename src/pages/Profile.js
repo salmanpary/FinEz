@@ -14,8 +14,7 @@ const Profile = () => {
     const fetchData = async () => {
 
         const resp = await axios.post('https://fineazy-backend.herokuapp.com/getprice/users_portfolio', {
-            apikey: "aYzZOAeym4hX76k6jMogk7mhJNYnywZuAI6jl7Mii89DzrMAw4B6vv9NvU1aU9fu",
-            apisecret: "JmU2M67eYD9ZqBLMF8JH4R5XPpK8owoZHjkFcnNRFiIyVed87aVh5VuQmx7FHjC8"
+            "email": "adamrubiks@gmail.com"
 
         })
         console.log(resp.data)

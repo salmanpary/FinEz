@@ -13,7 +13,7 @@ const Friends = () => {
     const res = await axios.post('https://fineazy-backend.herokuapp.com/auth/show_not_friends', {
       "email": "adamrubiks@gmail.com"
     })
-    console.log(res.data)
+    console.log(res.data,'hello')
     setFollow(res.data)
   }
   useEffect(() => {
