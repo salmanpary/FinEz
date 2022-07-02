@@ -4,7 +4,9 @@ const initialState={
     "invested_amount":0,
     "name":" ",
     "sum_percentage":" ",
-    "total_amount":" "
+    "total_amount":" ",
+    "followers":0,
+    "following":0,
 }
 const viewSlice=createSlice({
     name:"view",
@@ -16,6 +18,8 @@ const viewSlice=createSlice({
             state.name=action.payload.name;
             state.sum_percentage=action.payload.sum_percentage;
             state.total_amount=action.payload.total_amount;
+            state.followers=action.payload.followers;
+            state.following=action.payload.following;
         }
     }
 })

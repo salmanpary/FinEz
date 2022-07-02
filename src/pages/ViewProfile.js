@@ -7,11 +7,7 @@ const ViewProfile = ({ data }) => {
     const friend = useSelector(state => state.friends)
     const view = useSelector(state => state.view)
    console.log(view,'kle')
-    var invested = {
-        sum_percentage: friend.percentage,
-        invested_amount: friend.total_balance
-
-    }
+    
 
     // var link = "https://fineazy-backend.herokuapp.com/auth/specific_user"
     return (
@@ -30,9 +26,9 @@ const ViewProfile = ({ data }) => {
                     <div className="text-2xl mt-8">Following.</div>
                 </div>
                </div>
-               <div className="col-span-1 text-2xl font-semibold ml-12 ">
-               <h3> Followers : </h3>
-               <h3> Following :</h3>
+               <div className="col-span-1 text-2xl font-semibold ml-20 flex flex-col justify-evenly  ">
+               <h3 className='mb-4'> Followers : {view.followers}</h3>
+               <h3> Following : {view.following} </h3>
                </div>
             </div>
 
