@@ -47,7 +47,7 @@ const Profile = () => {
                         <h3 className='text-xl '>Invested Value</h3><h3 className='text-lg'>{invested?.invested_amount} BUSD</h3>
                     </div>
                     <div className="flex justify-between mx-12 mt-12">
-                        <h3 className='text-xl '>Overall gain</h3><h3 className='text-lg'>{invested?.sum_percentage.slice(1)}</h3>
+                        <h3 className='text-xl '>Overall gain</h3><h3 className='text-lg'>{invested?.sum_percentage}</h3>
                     </div>
                     <div className="flex justify-between mx-12 mt-12">
                         <h3 className='text-xl '>1 D gain</h3><h3 className='text-xl'>{change1d} </h3>
@@ -77,17 +77,17 @@ const Profile = () => {
 
 function Card({ data, i }) {
 
-    const icon = data[i]?.name.slice(0,3).toLowerCase()
-  const imgLink = `https://cryptoicons.org/api/icon/${icon}/200`
+    const icon = data[i]?.name.slice(0, 3).toLowerCase()
+    const imgLink = `https://cryptoicons.org/api/icon/${icon}/200`
     console.log(imgLink)
-  
+
     return (
         <div className="flex Home_overview bg-slate-100 p-8 rounded-lg box_3d items-center justify-between mt-8 ">
-         <div className="flex items-center">
-         
-          <img src={imgLink} className="w-12 h-12 flex items-center mr-2" alt="" />
-  <h2 className='text-xl font-bold'>{data[i]?.name}</h2>
-         </div>
+            <div className="flex items-center">
+
+                {/* <img src={imgLink} className="w-12 h-12 flex items-center mr-2" alt="" /> */}
+                <h2 className='text-xl font-bold'>{data[i]?.name}</h2>
+            </div>
             <div className="">
                 <h3 className='font-semibold mb-2'><span className='text-gray-600 font-normal'>Tot amt. :</span> {data[i]?.price}</h3>
                 <h3 className='font-semibold'><span className='text-gray-600 font-normal'>% change :</span>{data[i]?.percentage_change}</h3>
