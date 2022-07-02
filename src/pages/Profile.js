@@ -90,8 +90,8 @@ function Card({ data, i }) {
          </div>
             <div className="">
                 <h3 className='font-semibold mb-2'><span className='text-gray-600 font-normal'>Tot amt. :</span> {data[i]?.price}</h3>
-                <h3 className='font-semibold'><span className='text-gray-600 font-normal'>% change :</span> {data[i]?.allocation}</h3>
-                <h3 className='font-semibold mt-2'> <span className='text-gray-600 font-normal'>Allocation :</span>{data[i]?.percentage_change}</h3>
+                <h3 className='font-semibold'><span className='text-gray-600 font-normal'>% change :</span>{data[i]?.percentage_change}</h3>
+                <h3 className='font-semibold mt-2'> <span className='text-gray-600 font-normal'>Allocation :</span>{data[i]?.allocation}</h3>
             </div>
 
         </div>

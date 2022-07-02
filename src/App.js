@@ -37,7 +37,7 @@ function App() {
           <Route path="/createbasket" element={<Createbasket />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/Friends" element={<Friends />} />
+          <Route path="/friends" element={<Friends />} />
         </Routes>
       </div>
     </div>
