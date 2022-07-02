@@ -10,14 +10,14 @@ const FriendsFollow = () => {
         if (btntext === "FOLLOW") {
             setbtntext("FOLLOWING")
             setbtnbgcolor("bg-white")
-            setbtnhover("bg-gray-400")
+            setbtnhover("hover:bg-gray-100")
             setborder("border-solid border-2 border-blue-700")
             setfontcolor("text-blue-700")
         }
         else {
             setbtntext("FOLLOW")
             setbtnbgcolor("bg-blue-700")
-            setbtnhover("bg-blue-500")
+            setbtnhover("hover:bg-blue-500")
             setborder("border-hidden")
             setfontcolor("text-white")
         }
