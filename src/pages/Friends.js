@@ -19,6 +19,7 @@ const Friends = () => {
   const [follow, setFollow] = useState()
   const [following, setFollowing] = useState()
   const [followingData, setFollowingData] = useState()
+  const [expert,setExpert] = useState()
 
 
 
@@ -52,16 +53,22 @@ const Friends = () => {
     }
     console.log(temp, 'temp')
   }
+  const experts = async ()=>{
+    const res = await axios.get('https://fineazy-backend.herokuapp.com/getprice/user1')
+    console.log(res.data,'hereiam')
+    setExpert(res.data)
+   }
   useEffect(() => {
     fetch()
     fetchFollowing()
+    experts()
   }, [window.location.reload])
   useEffect(() => {
     getdetails();
 
   }, [following])
 
-
+ 
 
   return (
     <>
@@ -70,9 +77,9 @@ const Friends = () => {
         <h1 className="font-bold text-3xl text-blue-600 mt-16 ml-6">Expert Friends</h1>
         <div className="ml-6 text-white">Investment details</div>
         <div className="grid grid-cols-2 gap-4">
-          <Portfolio />
-          <Portfolio />
-          <Portfolio />
+          {expert?.map((data)=>(
+            <Portfolio data={data}/>
+          ))}
         </div>
       </div>
       <h1 className="text-3xl font-bold ml-14 mt-16 text-blue-600">Follow</h1>
@@ -111,7 +118,7 @@ const Friends = () => {
 
 export default Friends;
 
-function Portfolio() {
+function Portfolio({data}) {
   const redirect = () => {
 
     window.location.replace("https://rzp.io/l/i6vbzGnC")
@@ -128,7 +135,7 @@ function Portfolio() {
             className="h-16 w-16 rounded-full"
           />
 
-          <div className="name font-medium text-lg text-white">Adam's Portfolio</div>
+          <div className="name font-medium text-lg text-white">{data.name}'s Portfolio</div>
 
           <FaLock className="ml-32 fill-red-600" />
 
@@ -140,9 +147,9 @@ function Portfolio() {
           <div></div>
         </div>
         <div className="grid grid-cols-3">
-          <div className="no1 text-white font-medium">500usdt</div>
-          <div className="text-green-400 font-semibold">60%</div>
-          <div className="text-blue-500 font-semibold">3%</div>
+          <div className="no1 text-white font-medium">{data?.invested_amount}usdt</div>
+          <div className="text-green-400 font-semibold">{data?.total_amount}%</div>
+          <div className="text-blue-500 font-semibold">{Number(data.total_amount-3)}%</div>
         </div>
       </div>
     </form>
