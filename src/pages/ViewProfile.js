@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { storeview } from "../features/viewprofile/view";
 const ViewProfile = ({ data }) => {
     const friend = useSelector(state => state.friends)
-    console.log(friend, 'herer')
+    const view = useSelector(state => state.view)
+   console.log(view,'kle')
     var invested = {
         sum_percentage: friend.percentage,
         invested_amount: friend.total_balance
@@ -16,11 +17,28 @@ const ViewProfile = ({ data }) => {
     return (
 
         <div className='mt-12 ml-4'>
-        
+
+            <div className="bg-white mx-12 rounded-xl py-12 mb-8 px-12 grid grid-cols-2">
+               <div className="flex items-center col-span-1 border-r-2	">
+               <img
+                    src="https://www.pngitem.com/pimgs/m/419-4196791_transparent-confused-man-png-default-profile-png-download.png"
+                    alt=""
+                    className="h-32 w-32 rounded-full"
+                />
+                <div className="text-5xl font-bold ml-20">
+                    {view.name}
+                    <div className="text-2xl mt-8">Following.</div>
+                </div>
+               </div>
+               <div className="col-span-1 text-2xl font-semibold ml-12 ">
+               <h3> Followers : </h3>
+               <h3> Following :</h3>
+               </div>
+            </div>
 
             <div className="grid grid-cols-3">
                 <div className="col-span-1">
-                    <Profilecomp invested={invested} />
+                    <Profilecomp invested={view} />
 
                 </div>
             </div>

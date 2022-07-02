@@ -88,10 +88,11 @@ const Friends = () => {
       <div className="following">
         <h1 className="text-3xl font-bold ml-14 mt-16 text-blue-800">Following</h1>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 p-10">
           {followingData?.map((data) => (
             <div onClick={() => {
-              dispatch(storeinfo(data))
+              dispatch(storeview(data))
+              console.log(data,'njanm')
               navigate('/viewprofile')
             }} className=""><FriendsFollow data={data} f={false} /></div>
           ))}
