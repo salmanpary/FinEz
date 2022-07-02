@@ -64,7 +64,9 @@ export default Friends;
 
 function Portfolio() {
   const redirect = () => {
-    window.location.replace("https://razorpay.com/payment-link/plink_JoMxN3Rva1xgFU")
+   
+    window.location.replace("https://rzp.io/l/i6vbzGnC")
+    
   }
   return (
     <div className="salman white-glassmorphism hover:bg-slate-100  p-8  rounded-lg box_3d mt-12 h-60  hover:cursor-pointer m-5" onClick={redirect}>
