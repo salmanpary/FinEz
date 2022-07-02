@@ -19,7 +19,7 @@ const Friends = () => {
   const [follow, setFollow] = useState()
   const [following, setFollowing] = useState()
   const [followingData, setFollowingData] = useState()
-
+  const [paidportfolioinfo,setpaidportfolioinfo]=useState([])
 
 
   const fetch = async () => {
@@ -60,6 +60,15 @@ const Friends = () => {
     getdetails();
 
   }, [following])
+  useEffect(()=>{
+    axios.get("https://fineazy-backend.herokuapp.com/auth/friends").then(res=>{
+      setpaidportfolioinfo(res.data)
+      console.log(res.data)
+  }).catch((e)=>{
+ console.log(e)
+  })
+
+  },[])
 
 
 
@@ -70,9 +79,16 @@ const Friends = () => {
         <h1 className="font-bold text-3xl text-blue-800 mt-16 ml-6">Expert Friends</h1>
         <div className="ml-6">Investment details</div>
         <div className="grid grid-cols-2 gap-4">
-          <Portfolio />
-          <Portfolio />
-          <Portfolio />
+          {
+            paidportfolioinfo && paidportfolioinfo.map((item)=>{
+              return <Portfolio 
+              name={item?.name}
+              invested_value={item?.invested_value}
+              overall_gain={item?.overall_gain}
+              one_day_gain={item?.one_day_gain}
+              />
+            })
+          }
         </div>
       </div>
       <h1 className="text-3xl font-bold ml-14 mt-16 text-blue-800">Follow</h1>
@@ -110,7 +126,7 @@ const Friends = () => {
 
 export default Friends;
 
-function Portfolio() {
+function Portfolio({name,invested_value,overall_gain,one_day_gain}) {
   const redirect = () => {
    
     window.location.replace("https://rzp.io/l/i6vbzGnC")
@@ -119,7 +135,7 @@ function Portfolio() {
   return (
     <form>
       <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_JoNQ5NdVhMALOX" async> </script>
-      <div className="salman white-glassmorphism hover:bg-slate-100  p-8  rounded-lg box_3d mt-12 h-60  hover:cursor-pointer m-5" >
+      <div className="salman white-glassmorphism hover:bg-slate-100  p-8  rounded-lg box_3d mt-12 h-60  hover:cursor-pointer m-5" onClick={redirect} >
         <div className="grid grid-cols-3 m-5">
           <img
             src="https://www.pngitem.com/pimgs/m/419-4196791_transparent-confused-man-png-default-profile-png-download.png"
@@ -127,7 +143,7 @@ function Portfolio() {
             className="h-16 w-16 rounded-full"
           />
 
-          <div className="name font-medium text-lg">Adam's Portfolio</div>
+          <div className="name font-medium text-lg">{name}</div>
 
           <FaLock className="ml-32 fill-red-600" />
 
@@ -139,9 +155,9 @@ function Portfolio() {
           <div></div>
         </div>
         <div className="grid grid-cols-3">
-          <div className="no1 font-medium">500usdt</div>
-          <div className="text-green-400 font-semibold">60%</div>
-          <div className="text-blue-500 font-semibold">3%</div>
+          <div className="no1 font-medium">{invested_value}usdt</div>
+          <div className="text-green-400 font-semibold">{overall_gain}%</div>
+          <div className="text-blue-500 font-semibold">{one_day_gain}%</div>
         </div>
       </div>
     </form>

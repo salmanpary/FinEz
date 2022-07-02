@@ -58,6 +58,7 @@ function Home({ setBasket, basket }) {
         const temp = [...apidata]
 
         for (let i = 0; i < showbasket.length; i++) {
+            
             temp.push({
                 name: showbasket[i].title,
                 desc: showbasket[i].description,

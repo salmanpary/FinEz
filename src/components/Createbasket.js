@@ -1,8 +1,21 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const Createbasket = () => {
   const navigate = useNavigate()
+  const [options,setoptions]=useState([])
+  useEffect(()=>{
+    axios.get('https://fineazy-backend.herokuapp.com/getprice').then(res=>{
+      setoptions(Object.keys(res.data))
+      
+    }).catch(err=>{
+      console.log(err)
+    }).finally(()=>{
+      console.log(options)
+    }
+    )
+
+  },[])
   const data = ["ETHBTC",
     "BTC",
     "ETH",
@@ -176,7 +189,7 @@ const Createbasket = () => {
                   <option value="ETHUSDT">ETH</option>
                   <option value="DOGEUSDT">DOGECOIN</option>
                   <option value="SOLUSDT">SOLANA</option> */}
-                  {data.map((datas) => (
+                  {options &&options.map((datas) => (
                     <option >{datas}</option>
                   ))}
                 </select>
@@ -225,7 +238,7 @@ const Createbasket = () => {
                   <option>ETH</option>
                   <option>DOGECOIN</option>
                   <option>SOLANA</option> */}
-                  {data.map((datas) => (
+                  {options&&options.map((datas) => (
                     <option >{datas}</option>
                   ))}
                 </select>
@@ -274,7 +287,7 @@ const Createbasket = () => {
                   <option value="ETH">ETH</option>
                   <option value="DOGECOIN">DOGECOIN</option>
                   <option value="DOGECOIN">SOLANA</option> */}
-                  {data.map((datas) => (
+                  {options &&options.map((datas) => (
                     <option >{datas}</option>
                   ))}
                 </select>
