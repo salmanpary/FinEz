@@ -16,6 +16,7 @@ const ViewProfile = ({ data }) => {
     return (
 
         <div className='mt-12 ml-4'>
+        
 
             <div className="grid grid-cols-3">
                 <div className="col-span-1">

@@ -11,9 +11,8 @@ FriendsFollow = ({ data ,f}) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [follow, setFollow] = useState(true)
-   
-    
-   
+  
+
     const followHandler = async () => {
         let body = {
             email: "adamrubiks@gmail.com",

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, useNavigate } from "react-router-dom";
 import { FaLock } from "react-icons/fa";
 import '../assets/glassmorphism.css';
 import Explore from "../components/Explore";
@@ -11,6 +11,8 @@ import { storeinfo } from '../features/friends/friends'
 import axios from "axios";
 import { useState } from "react";
 const Friends = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const redirect = () => {
     window.location.replace("https://paytm.me/6-FJJsF")
   }
@@ -46,8 +48,9 @@ const Friends = () => {
         temp.push(res.data)
       }
       setFollowingData(temp)
-     console.log(temp)
+      console.log(temp)
     }
+    console.log(temp, 'temp')
   }
   useEffect(() => {
     fetch()
@@ -76,7 +79,6 @@ const Friends = () => {
 
       <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10">
         {follow?.map((data) => (
-
           <FriendsFollow data={data} f={true} />
         ))}
       </div>
@@ -88,7 +90,10 @@ const Friends = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10">
           {followingData?.map((data) => (
-            <FriendsFollow data={data} f={false} />
+            <div onClick={() => {
+              dispatch(storeinfo(data))
+              navigate('/viewprofile')
+            }} className=""><FriendsFollow data={data} f={false} /></div>
           ))}
         </div>
 
