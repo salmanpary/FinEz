@@ -77,37 +77,37 @@ function Home({ setBasket, basket }) {
     return (
         <div>
 
-            <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg box_3d mt-12" >
+            <div className="Home_overview blue-glassmorphism flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg box_3d mt-12" >
 
                 <div className="">
-                    <h3 className='text-2xl text-blue-800 font-bold'>Overview</h3>
-                    <h5 className='text-md  text-gray-600'>Markets | investments</h5>
+                    <h3 className='text-2xl text-blue-600 font-bold'>Overview</h3>
+                    <h5 className='text-md  text-gray-300'>Markets | investments</h5>
                 </div>
                 <div className="">
-                    <h4 className='font-bold text-blue-800'>BTC</h4>
+                    <h4 className='font-bold text-blue-600'>BTC</h4>
                     {
                         ar?.BTCUSDT?.BTCUSDT ?
-                            <h3 className='text-2xl font-bold  text-green-400'>{parseFloat(ar.BTCUSDT.BTCUSDT).toFixed(2)}</h3>
+                            <h3 className='text-2xl font-bold  text-green-500'>{parseFloat(ar.BTCUSDT.BTCUSDT).toFixed(2)}</h3>
                             :
                             <h3 className='text-2xl font-medium'>Loading...</h3>
                     }
                 </div>
                 <div className="">
-                    <h4 className=" text-blue-800 font-bold  ">Current Value</h4>
-                    <h3 className='font-bold text-xl text-green-400'>$24.5</h3>
+                    <h4 className=" text-blue-600 font-bold  ">Current Value</h4>
+                    <h3 className='font-bold text-xl text-green-500'>$24.5</h3>
                 </div>
                 <div className="">
-                    <h4 className=" text-blue-800 font-bold">Current Returns</h4>
-                    <h3 className='font-bold text-xl text-green-400'>+5%</h3>
+                    <h4 className=" text-blue-600 font-bold">Current Returns</h4>
+                    <h3 className='font-bold text-xl text-green-500'>+5%</h3>
                 </div>
                 <div className="">
                     <button className=' text-white px-6 py-2 rounded hover:px-7 hover:py-3 my-2 blue_3d' type="submit">Explore Baskets</button>
                 </div>
             </div>
-            <h3 className='text-3xl mb-8 font-bold text-left ml-20 text-blue-800 '>Investment Baskets</h3>
+            <h3 className='text-3xl mb-8 font-bold text-left ml-20 text-blue-800 text-gradient'>Investment Baskets</h3>
             <div className="flex lg:ml-20">
                 <div className="">
-                    <div className="text-2xl my-8 text-center font-semibold">
+                    <div className="text-2xl my-8 text-center font-medium text-white">
                         Trending
                     </div>
                     {data.map((datas) => (
@@ -136,16 +136,16 @@ function Home({ setBasket, basket }) {
 
 
                 <div className="Home_container2 p-6 ml-10 mr-4 text-left rounded box_3d">
-                    <h3 className='font-bold mb-4'>How to start investing in a Basket</h3>
-                    <h5 className='mb-5 flex items-center'><GoVerified className='text mt-1 text-green-400' /> &nbsp; Viewed Home</h5>
-                    <h5 className='mb-5 flex items-center'><ImBookmarks className='text mt-1 ' /> &nbsp; Watchlist a Basket</h5>
-                    <h5 className='mb-5 flex items-center'><BsFillBriefcaseFill className='text mt-1 ' /> &nbsp; Invest in Basket</h5>
-                    <h5 className='mb-5 flex items-center'><GiCoffeeMug className='text mt-1 ' /> &nbsp; Start SIP</h5>
+                    <h3 className='font-bold mb-4 text-gray-100'>How to start investing in a Basket</h3>
+                    <h5 className='mb-5 flex items-center text-gray-100'><GoVerified className='text mt-1 text-green-400' /> &nbsp; Viewed Home</h5>
+                    <h5 className='mb-5 flex items-center text-gray-100'><ImBookmarks className='text mt-1 ' /> &nbsp; Watchlist a Basket</h5>
+                    <h5 className='mb-5 flex items-center text-gray-100'><BsFillBriefcaseFill className='text mt-1 ' /> &nbsp; Invest in Basket</h5>
+                    <h5 className='mb-5 flex items-center text-gray-100'><GiCoffeeMug className='text mt-1 ' /> &nbsp; Start SIP</h5>
 
                 </div>
 
             </div>
-            <button className='btn' onClick={basketHandler}>SHOW MORE</button>
+            <button className='btn mb-10' onClick={basketHandler}>SHOW MORE</button>
 
 
         </div>

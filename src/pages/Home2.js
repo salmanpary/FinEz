@@ -6,17 +6,19 @@ import { Link } from 'react-router-dom'
 const Home2 = () => {
     return (
         <div className='home'>
-            {/* <img src={vector}></img> */}
-            <p className='heading'>Invest and Grow</p>
-            <p className='subhead'>Build your diversified portfolio with us</p><br></br>
-            <Link to="/signin">
+            <div className=''>
+                {/* <img src={vector}></img> */}
+                <p className='mt-36 text-gradient text-3xl md:text-6xl text-white'>Invest and Grow</p>
+                <p className='text-gradient text-lg md:text-2xl text-white mt-4 mb-4'>Build your diversified portfolio with us</p><br></br>
+                <Link to="/signin">
 
-                <button onClick={''} className='btn'>SignUp with Binance</button>
-            </Link>
-            <Link to="/login">
-                <button onClick={''} className='btn2 btn'>Login with Binance</button>
-            </Link>
-            <img className='ill' src={logo2}></img>
+                    <button onClick={''} className='btn'>SignUp with Binance</button>
+                </Link>
+                <Link to="/login">
+                    <button onClick={''} className='btn2 btn mb-48 white-glassmorphism'>Login with Binance</button>
+                </Link>
+                <img className='ill' src={logo2}></img>
+            </div>
         </div>
     )
 }
