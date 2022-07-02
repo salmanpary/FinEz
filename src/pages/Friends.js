@@ -67,15 +67,15 @@ const Friends = () => {
     <>
       <div className="m-10">
 
-        <h1 className="font-bold text-3xl text-blue-800 mt-16 ml-6">Expert Friends</h1>
-        <div className="ml-6">Investment details</div>
+        <h1 className="font-bold text-3xl text-blue-600 mt-16 ml-6">Expert Friends</h1>
+        <div className="ml-6 text-white">Investment details</div>
         <div className="grid grid-cols-2 gap-4">
           <Portfolio />
           <Portfolio />
           <Portfolio />
         </div>
       </div>
-      <h1 className="text-3xl font-bold ml-14 mt-16 text-blue-800">Follow</h1>
+      <h1 className="text-3xl font-bold ml-14 mt-16 text-blue-600">Follow</h1>
 
       <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10">
         {follow?.map((data) => (
@@ -86,7 +86,7 @@ const Friends = () => {
 
 
       <div className="following">
-        <h1 className="text-3xl font-bold ml-14 mt-16 text-blue-800">Following</h1>
+        <h1 className="text-3xl font-bold ml-14 mt-16 text-blue-600">Following</h1>
 
         <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10">
           {followingData?.map((data) => (
@@ -112,14 +112,14 @@ export default Friends;
 
 function Portfolio() {
   const redirect = () => {
-   
+
     window.location.replace("https://rzp.io/l/i6vbzGnC")
-    
+
   }
   return (
     <form>
       <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_JoNQ5NdVhMALOX" async> </script>
-      <div className="salman white-glassmorphism hover:bg-slate-100  p-8  rounded-lg box_3d mt-12 h-60  hover:cursor-pointer m-5" >
+      <div className="salman white-glassmorphism portfolio_cards p-8  rounded-lg box_3d mt-12 h-60  hover:cursor-pointer m-5" >
         <div className="grid grid-cols-3 m-5">
           <img
             src="https://www.pngitem.com/pimgs/m/419-4196791_transparent-confused-man-png-default-profile-png-download.png"
@@ -127,19 +127,19 @@ function Portfolio() {
             className="h-16 w-16 rounded-full"
           />
 
-          <div className="name font-medium text-lg">Adam's Portfolio</div>
+          <div className="name font-medium text-lg text-white">Adam's Portfolio</div>
 
           <FaLock className="ml-32 fill-red-600" />
 
         </div>
         <div className="grid grid-cols-3 mt-10">
-          <div className="value text-gray-500 text-sm">Invested Value</div>
-          <div className="overallgain text-gray-500 text-sm">Overall Gain</div>
-          <div className="1day text-gray-500 text-sm">1 day gain</div>
+          <div className="value text-gray-300 text-sm">Invested Value</div>
+          <div className="overallgain text-gray-300 text-sm">Overall Gain</div>
+          <div className="1day text-gray-300 text-sm">1 day gain</div>
           <div></div>
         </div>
         <div className="grid grid-cols-3">
-          <div className="no1 font-medium">500usdt</div>
+          <div className="no1 text-white font-medium">500usdt</div>
           <div className="text-green-400 font-semibold">60%</div>
           <div className="text-blue-500 font-semibold">3%</div>
         </div>
