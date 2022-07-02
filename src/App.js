@@ -39,8 +39,8 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/friends" element={<Friends />} />
-          <Route path="/:data" element={<ViewProfile />} />
-
+          <Route path="/viewprofile" element={<ViewProfile />} />
+          
         </Routes>
       </div>
     </div>
