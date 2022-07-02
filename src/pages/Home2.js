@@ -3,8 +3,10 @@ import logo2 from '../images/logo2.png'
 import vector from '../images/vector.png'
 import './Home2.css'
 import { Link } from 'react-router-dom'
+import Coins from '../components/Coins'
 const Home2 = () => {
     return (
+        <>
         <div className='home'>
             {/* <img src={vector}></img> */}
             <p className='heading'>Invest and Grow</p>
@@ -18,6 +20,10 @@ const Home2 = () => {
             </Link>
             <img className='ill' src={logo2}></img>
         </div>
+        <div className="coins">
+<Coins />
+        </div>
+        </>
     )
 }
 
