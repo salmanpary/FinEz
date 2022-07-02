@@ -64,7 +64,7 @@ function Navbar() {
     return (
         <div className='navbar flex fixed justify-between bg-white h-13 blue_3d_nav mx-10 ml-12 w-11/12 mt-5 p-2'>
             <div className=" flex mx-12 items-center">
-                <img className="piggy m-0 p-0 " src={piggy}></img>
+                <img className="piggy m-0 p-0" src={piggy}></img>
                 <h5 className='mx-2 nav_btn text-white'><Link to="/">Home</Link></h5>
                 <h5 className='mx-2 nav_btn text-white'><Link to="/home2">Discover</Link></h5>
                 <h5 className='mx-2 nav_btn text-white'><Link to="/create">Create</Link></h5>

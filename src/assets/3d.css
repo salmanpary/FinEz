@@ -12,6 +12,12 @@
     border-radius: 12px;
 }
 
+.green_3d {
+    background-color: rgb(32, 193, 38);
+    box-shadow: 4px 4px 12px rgba(20, 143, 28, 0.461), inset 4px 4px 14px rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+}
+
 .box_3d {
     box-shadow: 4px 4px 15px rgba(154, 154, 154, 0.338), inset 4px 4px 14px rgba(255, 255, 255, 0.25);
     border-radius: 20px;
@@ -28,6 +34,11 @@
 }
 
 .red_3d:hover {
+    transition: ease 400ms;
+    transform: scale(1.04);
+}
+
+.green_3d:hover {
     transition: ease 400ms;
     transform: scale(1.04);
 }
