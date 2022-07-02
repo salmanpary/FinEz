@@ -20,6 +20,7 @@ const Friends = () => {
   const [following, setFollowing] = useState()
   const [followingData, setFollowingData] = useState()
   const [expert,setExpert] = useState()
+  const [ldata,setLdata] = useState()
 
 
 
@@ -66,10 +67,18 @@ const Friends = () => {
     console.log(res.data,'hereiam')
     setExpert(res.data)
    }
+   const lisadata= async ()=>{
+    const res = await axios.get('https://fineazy-backend.herokuapp.com/auth/lisa')
+    console.log(res.data,'hereiaml')
+    res.data.name = 'Lisa'
+    res.data.followers = 5
+    setLdata(res.data)
+   }
   useEffect(() => {
     fetch()
     fetchFollowing()
     experts()
+    lisadata()
   }, [window.location.reload])
   useEffect(() => {
     getdetails();
@@ -112,6 +121,13 @@ const Friends = () => {
               navigate('/viewprofile')
             }} className=""><FriendsFollow data={data} f={false} /></div>
           ))}
+          {ldata && 
+          <div onClick={()=>navigate('/prol')} className="">
+
+          {/* <FriendsFollow data={ldata} f={false} /> */}
+          </div>
+          }
+          
         </div>
       </div>
     </>
