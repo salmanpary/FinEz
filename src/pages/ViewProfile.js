@@ -43,10 +43,18 @@ const ViewProfile = ({ data }) => {
             <div className="grid grid-cols-3">
                 <div className="col-span-1 ml-12 mb-12">
                     <Profilecomp invested={view} />
+                    <div className=" flex justify-evenly">
+                        <button type="submit" className='mt-4 w-[10rem] py-2 green_3d text-white hover:bg-green-500 font-semibold text-lg' > BUY </button>
+                        <button type="submit" className='mt-4 w-[10rem] py-2 red_3d text-white hover:bg-red-500  font-semibold text-lg' > SELL </button>
+
+                    </div>
 
                 </div>
+
                 <div className="col-span-2 mx-12">
-                    <Card />
+                    <Card url={"https://cryptoicons.org/api/icon/bnb/200"} name="BNBUSDT" totalamount="426.3" pchange={"21%"} allocation="30" />
+                    <Card url={"https://cryptoicons.org/api/icon/ltc/200"} name="LTCUSDT" totalamount={"994.7"} pchange={"12%"} allocation="70" />
+
                 </div>
             </div>
         </div>
@@ -55,10 +63,10 @@ const ViewProfile = ({ data }) => {
 
 export default ViewProfile
 
-function Card({ data, i }) {
+function Card({ url, name, totalamount, allocation, pchange }) {
 
     // const icon = data[i]?.name.slice(0, 3).toLowerCase()
-    const imgLink = `https://cryptoicons.org/api/icon/bnb/200`
+    const imgLink = `${url}`
     // console.log(imgLink)
 
     return (
@@ -66,12 +74,12 @@ function Card({ data, i }) {
             <div className="flex items-center">
 
                 <img src={imgLink} className="w-12 h-12 flex items-center mr-2" alt="" />
-                <h2 className='text-xl font-bold'>BNBUSD</h2>
+                <h2 className='text-xl font-bold'>{name}</h2>
             </div>
             <div className="">
-                <h3 className='font-semibold mb-2'><span className='text-gray-600 font-normal'>Tot amt. : </span> 12 USD</h3>
-                <h3 className='font-semibold'><span className='text-gray-600 font-normal'>% change : </span>8.342</h3>
-                <h3 className='font-semibold mt-2'> <span className='text-gray-600 font-normal'>Allocation : </span>100</h3>
+                <h3 className='font-semibold mb-2'><span className='text-gray-600 font-normal'>Tot amt. : </span>{totalamount} USD</h3>
+                <h3 className='font-semibold'><span className='text-gray-600 font-normal'>% change : </span>{pchange}</h3>
+                <h3 className='font-semibold mt-2'> <span className='text-gray-600 font-normal'>Allocation : </span>{allocation}</h3>
             </div>
 
         </div>
