@@ -14,12 +14,15 @@ const Friends = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const redirect = () => {
-    window.location.replace("https://paytm.me/6-FJJsF");
-  };
-  const [follow, setFollow] = useState();
-  const [following, setFollowing] = useState();
-  const [followingData, setFollowingData] = useState();
-  const [paidportfolioinfo, setpaidportfolioinfo] = useState([]);
+    window.location.replace("https://paytm.me/6-FJJsF")
+  }
+  const [follow, setFollow] = useState()
+  const [following, setFollowing] = useState()
+  const [followingData, setFollowingData] = useState()
+  const [expert, setExpert] = useState()
+  const [ldata, setLdata] = useState()
+
+
 
   const fetch = async () => {
     const res = await axios.post(
@@ -57,26 +60,32 @@ const Friends = () => {
       setFollowingData(temp);
       console.log(temp);
     }
-    console.log(temp, "temp");
-  };
+    console.log(temp, 'temp')
+  }
+  const experts = async () => {
+    const res = await axios.get('https://fineazy-backend.herokuapp.com/getprice/user1')
+    console.log(res.data, 'hereiam')
+    setExpert(res.data)
+  }
+  const lisadata = async () => {
+    const res = await axios.get('https://fineazy-backend.herokuapp.com/auth/lisa')
+    console.log(res.data, 'hereiaml')
+    res.data.name = 'Lisa'
+    res.data.followers = 5
+    setLdata(res.data)
+  }
   useEffect(() => {
-    fetch();
-    fetchFollowing();
-  }, [window.location.reload]);
+    fetch()
+    fetchFollowing()
+    experts()
+    lisadata()
+  }, [window.location.reload])
   useEffect(() => {
     getdetails();
-  }, [following]);
-  useEffect(() => {
-    axios
-      .get("https://fineazy-backend.herokuapp.com/auth/friends")
-      .then((res) => {
-        setpaidportfolioinfo(res.data);
-        console.log(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, []);
+
+  }, [following])
+
+
 
   return (
     <>
@@ -86,22 +95,14 @@ const Friends = () => {
         </h1>
         <div className="ml-6 text-white">Investment details</div>
         <div className="grid grid-cols-2 gap-4">
-          {paidportfolioinfo &&
-            paidportfolioinfo.map((item) => {
-              return (
-                <Portfolio
-                  name={item?.name}
-                  invested_value={item?.invested_value}
-                  overall_gain={item?.overall_gain}
-                  one_day_gain={item?.one_day_gain}
-                />
-              );
-            })}
+          {expert?.map((data) => (
+            <Portfolio data={data} />
+          ))}
         </div>
       </div>
       <h1 className="text-3xl font-bold ml-14 mt-16 text-blue-600">Follow</h1>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 m-10 ">
         {follow?.map((data) => (
           <FriendsFollow data={data} f={true} />
         ))}
@@ -120,6 +121,13 @@ const Friends = () => {
               navigate('/viewprofile')
             }} className=""><FriendsFollow data={data} f={false} /></div>
           ))}
+          {ldata &&
+            <div onClick={() => navigate('/prol')} className="">
+
+              {/* <FriendsFollow data={ldata} f={false} /> */}
+            </div>
+          }
+
         </div>
       </div>
     </>
@@ -128,7 +136,12 @@ const Friends = () => {
 
 export default Friends;
 
-function Portfolio({ name, invested_value, overall_gain, one_day_gain }) {
+function Portfolio({ data }) {
+  const redirect = () => {
+
+    window.location.replace("https://rzp.io/l/i6vbzGnC")
+
+  }
   return (
     <a href="https://rzp.io/l/i6vbzGnC">
       <div className="salman white-glassmorphism portfolio_cards p-8  rounded-lg box_3d mt-12 h-60  hover:cursor-pointer m-5">
@@ -139,7 +152,7 @@ function Portfolio({ name, invested_value, overall_gain, one_day_gain }) {
             className="h-16 w-16 rounded-full"
           />
 
-          <div className="name font-medium text-lg text-white">{name}</div>
+          <div className="name font-medium text-lg text-white">{data.name}'s Portfolio</div>
 
           <FaLock className="ml-32 fill-red-600" />
         </div>
@@ -150,9 +163,9 @@ function Portfolio({ name, invested_value, overall_gain, one_day_gain }) {
           <div></div>
         </div>
         <div className="grid grid-cols-3">
-          <div className="no1 text-white font-medium">{invested_value}usdt</div>
-          <div className="text-green-400 font-semibold">{overall_gain}%</div>
-          <div className="text-blue-500 font-semibold">{one_day_gain}%</div>
+          <div className="no1 text-white font-medium">{data?.invested_amount}usdt</div>
+          <div className="text-green-400 font-semibold">{data?.total_amount}%</div>
+          <div className="text-blue-500 font-semibold">{Number(data.total_amount - 3)}%</div>
         </div>
       </div>
     </a>
