@@ -4,14 +4,15 @@ import '../assets/3d.css'
 import { HiSpeakerphone } from 'react-icons/hi'
 import axios from 'axios'
 import { useState } from 'react'
+import '../assets/glassmorphism.css'
 import bnbimg from '../images/bnbicon.png'
-import { useSelector,useDispatch } from 'react-redux'
-import { storeemail} from '../features/userinfo/user'
+import { useSelector, useDispatch } from 'react-redux'
+import { storeemail } from '../features/userinfo/user'
 
 
 const Profile = () => {
-    const email=useSelector((state)=>{
-       return  state.user.email
+    const email = useSelector((state) => {
+        return state.user.email
 
     })
 
@@ -45,26 +46,24 @@ const Profile = () => {
         console.log(email)
     }, [])
     return (
-        <div className='grid grid-cols-3 mt-16 ml-8'>
-            
+        <div className='grid grid-cols-3 mt-16 ml-12'>
             <div className="col-span-1">
-                
-                <div className=" bg-slate-100 p-8 rounded-lg">
-                    <h3 className='text-center text-2xl font-bold'>Total Amount</h3>
-                    <h4 className='text-center text-3xl font-semibold mt-4'>{Math.round((invested?.total_amount / 10 + Number.EPSILON) * 100000) / 10000} BUSD </h4>
-                    <div className="flex justify-between mx-4 mt-12">
-                        <h3 className='text-xl '>Invested Value</h3><h3 className='text-lg'>{invested?.invested_amount} BUSD</h3>
+                <div className="Home_overview bg-slate-50 box_3d p-6 ">
+                    <h3 className='text-center text-2xl font-bold text-blue-700'>Total Amount</h3>
+                    <h4 className='text-center text-3xl font-semibold mt-3'>{Math.round((invested?.total_amount / 10 + Number.EPSILON) * 100000) / 10000} BUSD </h4>
+                    <div className="flex justify-items-start mx-4 mt-12">
+                        <h3 className='text-lg text-gray-600 mr-6'>Invested Value</h3><h3 className='text-lg ml-3'>{invested?.invested_amount} BUSD</h3>
                     </div>
-                    <div className="flex justify-between mx-12 mt-12">
-                        <h3 className='text-xl '>Overall gain</h3><h3 className='text-lg'>{invested?.sum_percentage}</h3>
+                    <div className="flex justify-items-start mx-4 mt-12">
+                        <h3 className='text-lg text-gray-600 mr-14'>Overall gain</h3><h3 className='text-lg ml-1'>{invested?.sum_percentage}</h3>
                     </div>
-                    <div className="flex justify-between mx-12 mt-12">
-                        <h3 className='text-xl '>1 D gain</h3><h3 className='text-xl'>{change1d} </h3>
+                    <div className="flex justify-items-start mx-4 mt-12">
+                        <h3 className='text-lg text-gray-600 mr-14'>1 D gain</h3><h3 className='text-lg ml-10'>{change1d} </h3>
                     </div>
                 </div>
                 <div className=" flex justify-evenly">
-                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white rounded-xl font-semibold text-xl' > Buy </button>
-                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-xl font-semibold text-xl' > Sell </button>
+                    <button type="submit" className='mt-4 w-[10rem] py-2 green_3d text-white hover:bg-green-500 font-semibold text-lg' > BUY </button>
+                    <button type="submit" className='mt-4 w-[10rem] py-2 red_3d text-white hover:bg-red-500  font-semibold text-lg' > SELL </button>
 
                 </div>
                 <Invite />
@@ -91,16 +90,16 @@ function Card({ data, i }) {
     console.log(imgLink)
 
     return (
-        <div className="flex Home_overview bg-slate-100 p-8 rounded-lg box_3d items-center justify-between mt-8 ">
+        <div className="flex Home_overview bg-slate-50 p-8 rounded-lg box_3d items-center justify-between mt-8 ">
             <div className="flex items-center">
 
                 {/* <img src={imgLink} className="w-12 h-12 flex items-center mr-2" alt="" /> */}
                 <h2 className='text-xl font-bold'>{data[i]?.name}</h2>
             </div>
             <div className="">
-                <h3 className='font-semibold mb-2'><span className='text-gray-600 font-normal'>Tot amt. :</span> {data[i]?.price}</h3>
-                <h3 className='font-semibold'><span className='text-gray-600 font-normal'>% change :</span>{data[i]?.percentage_change}</h3>
-                <h3 className='font-semibold mt-2'> <span className='text-gray-600 font-normal'>Allocation :</span>{data[i]?.allocation}</h3>
+                <h3 className='font-semibold mb-2'><span className='text-gray-600 font-normal'>Tot amt. : </span> {data[i]?.price}</h3>
+                <h3 className='font-semibold'><span className='text-gray-600 font-normal'>% change : </span>{data[i]?.percentage_change}</h3>
+                <h3 className='font-semibold mt-2'> <span className='text-gray-600 font-normal'>Allocation : </span>{data[i]?.allocation}</h3>
             </div>
 
         </div>
@@ -109,10 +108,10 @@ function Card({ data, i }) {
 
 function Invite() {
     return (
-        <div className="flex flex-col items-center mt-4 bg-slate-100 py-4 px-8 rounded-lg box_3d ">
-            <h3 className='text-xl flex items-center'>Invite and Earn  <HiSpeakerphone className='ml-2' /> </h3>
-            <h4 className='my-2'>Earn upto 2% from your friend's first investment.*</h4>
-            <div className="blue_3d w-[8rem] text-lg text-white text-center">Invite now</div>
+        <div className="flex flex-col mt-10 bg-slate-50 px-8 py-4 rounded-lg box_3d mb-10">
+            <h3 className='text-xl flex ml-0'>Invite and Earn  <HiSpeakerphone className='ml-2  h-7 w-7 fill-blue-900' /> </h3>
+            <h4 className='my-2 text-gray-600'>Earn upto 2% from your friend's first investment.*</h4>
+            <div className="blue_3d py-2 w-[8rem] text-xs text-white font-semibold text-center ml-56 cursor-pointer">INVITE NOW</div>
         </div>
     )
 }

@@ -46,7 +46,7 @@ const Coins = () => {
           name={items?.["0"]?.name}
           lastprice={items?.["0"]?.price}
           hrchange={items?.["0"]?.priceChangePercent}
-          volume={items?.["0"].volume}
+          volume={items?.["0"]?.volume}
           ticker="BNB"
         />
         <Coin
@@ -54,7 +54,7 @@ const Coins = () => {
           name={items?.["1"]?.name}
           lastprice={items?.["1"]?.price}
           hrchange={items?.["1"]?.priceChangePercent}
-          volume={items?.["1"].volume}
+          volume={items?.["1"]?.volume}
           ticker="BNB"
         />
         <Coin
@@ -62,7 +62,7 @@ const Coins = () => {
           name={items?.["2"]?.name}
           lastprice={items?.["2"]?.price}
           hrchange={items?.["2"]?.priceChangePercent}
-          volume={items?.["2"].volume}
+          volume={items?.["2"]?.volume}
           ticker="BNB"
         />
         <Coin
@@ -70,7 +70,7 @@ const Coins = () => {
           name={items?.["3"]?.name}
           lastprice={items?.["3"]?.price}
           hrchange={items?.["3"]?.priceChangePercent}
-          volume={items?.["3"].volume}
+          volume={items?.["3"]?.volume}
           ticker="BNB"
         />
         <Coin
@@ -78,7 +78,7 @@ const Coins = () => {
           name={items?.["4"]?.name}
           lastprice={items?.["4"]?.price}
           hrchange={items?.["4"]?.priceChangePercent}
-          volume={items?.["4"].volume}
+          volume={items?.["4"]?.volume}
           ticker="BNB"
         />
       </>

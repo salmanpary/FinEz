@@ -9,15 +9,19 @@ p {
     margin-left: 120px;
 }
 
+
 .ill {
 
     display: flex;
     height: 500px;
     float: right;
-    margin-top: 70px;
+    margin-top: 0px;
     top: 10px;
-    position: absolute;
+    position: relative;
     right: 0;
+    z-index: -1;
+    height: 430px;
+    top: 5%;
 }
 
 .heading {
@@ -50,6 +54,7 @@ p {
     border: 2px solid rgb(10, 10, 93);
     background-color: white;
     color: rgb(10, 10, 93);
+    color: white;
 }
 
 .btn:hover {
@@ -59,12 +64,7 @@ p {
 }
 
 .btn2:hover {
-    background-color: white;
+    background-color: rgb(241, 241, 241);
+    color: rgb(42, 42, 118);
     transform: scale(1.01, 1.01);
-}
-
-.ill {
-    z-index: -1;
-    height: 430px;
-    top: 5%
 }

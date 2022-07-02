@@ -62,23 +62,23 @@ function Navbar() {
     }, [data.address])
 
     return (
-        <div className='navbar flex fixed justify-between bg-white h-13 blue_3d_nav mx-10 ml-12 w-11/12 mt-5 p-2'>
+        <div className='navbar blue-glassmorphism flex fixed justify-between bg-white h-13 blue_3d_nav mx-10 ml-12 w-11/12 mt-5 p-2'>
             <div className=" flex mx-12 items-center">
-                <img className="piggy m-0 p-0 " src={piggy}></img>
-                <h5 className='mx-2 nav_btn text-white'><Link to="/">Home</Link></h5>
-                <h5 className='mx-2 nav_btn text-white'><Link to="/home2">Discover</Link></h5>
-                <h5 className='mx-2 nav_btn text-white'><Link to="/create">Create</Link></h5>
-                <h5 className='mx-2 nav_btn text-white'><Link to="/mybasket">MyBaskets</Link></h5>
-                <h5 className='mx-2 nav_btn text-white'><Link to="/friends">Friends</Link></h5>
+                <img className="piggy m-0 p-0" src={piggy}></img>
+                <h5 className='mx-3 nav_btn text-white'><Link to="/">Home</Link></h5>
+                <h5 className='mx-3 nav_btn text-white'><Link to="/home2">Discover</Link></h5>
+                <h5 className='mx-3 nav_btn text-white'><Link to="/create">Create</Link></h5>
+                <h5 className='mx-3 nav_btn text-white'><Link to="/mybasket">MyBaskets</Link></h5>
+                <h5 className='mx-3 nav_btn text-white'><Link to="/friends">Friends</Link></h5>
             </div>
             <div className="flex mr-12">
                 {hasAddress ? <>
                     {data.address.slice(0, 8)}...
                 </> : <>
                     {/* <h5 className='mx-2 cursor-pointer border-[1px] border-black px-1' onClick={btnhandler}> Connect to wallet</h5> */}
-                    <button className=' white_3d   text-black p-3 px-4 mx-4 text-xs cursor-not-allowed rounded-xl font-bold ' type="submit" disabled={true} onClick={btnhandler}>Connect wallet</button>
+                    <button className=' white-glassmorphism   text-white p-3 px-5 mx-4 text-xs cursor-not-allowed rounded-xl font-semibold ' type="submit" disabled={true} onClick={btnhandler}>Connect wallet</button>
                 </>}
-                <Link to='/profile'><h5 className='white_3d   text-black p-3 px-4 mr-0 text-xs rounded-xl font-bold '>Investments</h5></Link>
+                <Link to='/profile'><h5 className=' white-glassmorphism text-white p-3 px-5 mr-0 text-xs rounded-xl font-semibold '>Investments</h5></Link>
             </div>
         </div>
     )

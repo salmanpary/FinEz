@@ -23,7 +23,7 @@ function App() {
   const [basket, setBasket] = useState("");
 
   return (
-    <div className="App">
+    <div className="App gradient-bg-welcome">
 
       <Navbar />
       <div className="pt-16">
@@ -40,7 +40,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/friends" element={<Friends />} />
           <Route path="/:data" element={<ViewProfile />} />
-          
+
         </Routes>
       </div>
     </div>
