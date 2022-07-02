@@ -114,16 +114,11 @@ const Friends = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-row gap-3 p-10">
           {followingData?.map((data) => (
-            <div
-              onClick={() => {
-                dispatch(storeview(data));
-                console.log(data, "njanm");
-                navigate("/viewprofile");
-              }}
-              className=""
-            >
-              <FriendsFollow data={data} f={false} />
-            </div>
+            <div onClick={() => {
+              dispatch(storeview(data))
+              // console.log(data,'njanm')
+              navigate('/viewprofile')
+            }} className=""><FriendsFollow data={data} f={false} /></div>
           ))}
         </div>
       </div>
