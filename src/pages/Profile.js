@@ -5,9 +5,16 @@ import { HiSpeakerphone } from 'react-icons/hi'
 import axios from 'axios'
 import { useState } from 'react'
 import bnbimg from '../images/bnbicon.png'
+import { useSelector,useDispatch } from 'react-redux'
+import { storeemail} from '../features/userinfo/user'
 
 
 const Profile = () => {
+    const email=useSelector((state)=>{
+       return  state.user.email
+
+    })
+
     const [invested, setInvested] = useState()
     const [coinPrice, setCoinPrice] = useState([])
 
@@ -35,10 +42,13 @@ const Profile = () => {
     useEffect(() => {
         fetchData()
         cardfetch()
+        console.log(email)
     }, [])
     return (
         <div className='grid grid-cols-3 mt-16 ml-8'>
+            
             <div className="col-span-1">
+                
                 <div className=" bg-slate-100 p-8 rounded-lg">
                     <h3 className='text-center text-2xl font-bold'>Total Amount</h3>
                     <h4 className='text-center text-3xl font-semibold mt-4'>{Math.round((invested?.total_amount / 10 + Number.EPSILON) * 100000) / 10000} BUSD </h4>

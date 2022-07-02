@@ -4,11 +4,18 @@ import { FaLock } from "react-icons/fa";
 import '../assets/glassmorphism.css';
 import Explore from "../components/Explore";
 import FriendsFollow from "../components/FriendsFollow";
+
+import { useSelector,useDispatch } from 'react-redux'
+import {storeinfo} from '../features/friends/friends'
+
 import axios from "axios";
 import { useState } from "react";
 const Friends = () => {
-  const [follow, setFollow] = useState()
-
+    const redirect = () => {
+        window.location.replace("https://paytm.me/6-FJJsF")
+    }
+  const [follow,setFollow] = useState()
+ 
   const fetch = async () => {
     const res = await axios.post('https://fineazy-backend.herokuapp.com/auth/show_not_friends', {
       "email": "adamrubiks@gmail.com"

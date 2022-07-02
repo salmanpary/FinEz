@@ -1,10 +1,8 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { usersContext } from '../store/userContext'
 
 function Login() {
-    const { setUseremail } = useContext(usersContext)
     const navigate = useNavigate()
 
 
