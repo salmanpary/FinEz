@@ -6,9 +6,16 @@ import axios from 'axios'
 import { useState } from 'react'
 import '../assets/glassmorphism.css'
 import bnbimg from '../images/bnbicon.png'
+import { useSelector, useDispatch } from 'react-redux'
+import { storeemail } from '../features/userinfo/user'
 
 
 const Profile = () => {
+    const email = useSelector((state) => {
+        return state.user.email
+
+    })
+
     const [invested, setInvested] = useState()
     const [coinPrice, setCoinPrice] = useState([])
 
@@ -36,6 +43,7 @@ const Profile = () => {
     useEffect(() => {
         fetchData()
         cardfetch()
+        console.log(email)
     }, [])
     return (
         <div className='grid grid-cols-3 mt-16 ml-12'>
