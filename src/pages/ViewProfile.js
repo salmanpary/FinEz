@@ -1,8 +1,8 @@
 import React from 'react'
 import Profilecomp from '../components/Profilecomp'
 import Profile from './Profile'
-import { useSelector } from 'react-redux'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { storeview } from "../features/viewprofile/view";
 const ViewProfile = ({ data }) => {
     const friend = useSelector(state => state.friends)
     console.log(friend, 'herer')
