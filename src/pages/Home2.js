@@ -8,7 +8,6 @@ import Coins from '../components/Coins'
 import { FcGoogle } from "react-icons/fc";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
-
 const Home2 = () => {
     return (
         <>
