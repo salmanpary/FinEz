@@ -7,7 +7,7 @@ import { storeinfo } from "../features/friends/friends";
 const
     FriendsFollow = ({ data, f }) => {
         const friend = useSelector(state => state.friends)
-        const email = useSelector(state => state.user.email)
+        // const email = useSelector(state => state.user.email)
         const navigate = useNavigate()
         const dispatch = useDispatch()
         const [follow, setFollow] = useState(true)
