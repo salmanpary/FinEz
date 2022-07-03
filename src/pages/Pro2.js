@@ -43,7 +43,11 @@ const Pro2 = () => {
     <div className="col-span-1">
         
         <Profilecomp invested={expert[0]} />
+        <div className=" flex justify-evenly">
+                        <button type="submit" className='mt-4 w-[10rem] py-2 green_3d text-white hover:bg-green-500 font-semibold text-lg' > BUY </button>
+                        <button type="submit" className='mt-4 w-[10rem] py-2 red_3d text-white hover:bg-red-500  font-semibold text-lg' > SELL </button>
 
+                    </div>
 
     </div>
     <div className="col-span-2 mx-12">
