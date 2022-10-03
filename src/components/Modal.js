@@ -8,7 +8,7 @@ function Modal({ setShowModal, modal }) {
 
     useEffect(() => {
 
-        axios.get('https://fineazy-backend.herokuapp.com/getprice/balance').then((res) => {
+        axios.get('http://ec2-3-86-219-228.compute-1.amazonaws.com/getprice/balance').then((res) => {
             console.log(res.data);
             setbalance(res.data)
         }).catch((err) => {
@@ -19,7 +19,7 @@ function Modal({ setShowModal, modal }) {
 
     const investHandler = () => {
         console.log('hello');
-        axios.post(`https://fineazy-backend.herokuapp.com/getprice/buy`).then(res => {
+        axios.post(`http://ec2-3-86-219-228.compute-1.amazonaws.com/getprice/buy`).then(res => {
             console.log(res.data)
             if (res.data.status == "success") {
                 alert('Order Placed Successfylly')

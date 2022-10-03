@@ -26,7 +26,7 @@ function Login() {
         // if (user.email != '' && user.password != '') {
         //     alert('Every field is necessary')
         // } else {
-        axios.post('https://fineazy-backend.herokuapp.com/auth/login', user).then((res) => {
+        axios.post('http://ec2-3-86-219-228.compute-1.amazonaws.com/auth/login', user).then((res) => {
             console.log(res)
 
             navigate('/home2')

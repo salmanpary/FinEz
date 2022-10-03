@@ -13,7 +13,7 @@ const Profile = () => {
 
     const fetchData = async () => {
 
-        const resp = await axios.post('https://fineazy-backend.herokuapp.com/getprice/users_portfolio', {
+        const resp = await axios.post('http://ec2-3-86-219-228.compute-1.amazonaws.com/getprice/users_portfolio', {
             apikey: "aYzZOAeym4hX76k6jMogk7mhJNYnywZuAI6jl7Mii89DzrMAw4B6vv9NvU1aU9fu",
             apisecret: "JmU2M67eYD9ZqBLMF8JH4R5XPpK8owoZHjkFcnNRFiIyVed87aVh5VuQmx7FHjC8"
 
@@ -77,17 +77,17 @@ const Profile = () => {
 
 function Card({ data, i }) {
 
-    const icon = data[i]?.name.slice(0,3).toLowerCase()
-  const imgLink = `https://cryptoicons.org/api/icon/${icon}/200`
+    const icon = data[i]?.name.slice(0, 3).toLowerCase()
+    const imgLink = `https://cryptoicons.org/api/icon/${icon}/200`
     console.log(imgLink)
-  
+
     return (
         <div className="flex Home_overview bg-slate-100 p-8 rounded-lg box_3d items-center justify-between mt-8 ">
-         <div className="flex items-center">
-         
-          <img src={imgLink} className="w-12 h-12 flex items-center mr-2" alt="" />
-  <h2 className='text-xl font-bold'>{data[i]?.name}</h2>
-         </div>
+            <div className="flex items-center">
+
+                <img src={imgLink} className="w-12 h-12 flex items-center mr-2" alt="" />
+                <h2 className='text-xl font-bold'>{data[i]?.name}</h2>
+            </div>
             <div className="">
                 <h3 className='font-semibold mb-2'><span className='text-gray-600 font-normal'>Tot amt. :</span> {data[i]?.price}</h3>
                 <h3 className='font-semibold'><span className='text-gray-600 font-normal'>% change :</span> {data[i]?.allocation}</h3>

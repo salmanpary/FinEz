@@ -25,11 +25,11 @@ function Details() {
     const investHandler = () => {
 
         console.log('hello');
-        axios.post(`https://fineazy-backend.herokuapp.com/getprice/buy`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+        axios.post(`http://ec2-3-86-219-228.compute-1.amazonaws.com/getprice/buy`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
     }
     const sell = () => {
 
-        axios.post('https://fineazy-backend.herokuapp.com/getprice/sell').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+        axios.post('http://ec2-3-86-219-228.compute-1.amazonaws.com/getprice/sell').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
     }
     const ref = useRef(null)
     return (

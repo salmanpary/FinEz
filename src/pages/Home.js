@@ -49,7 +49,7 @@ function Home({ setBasket, basket }) {
     }, [])
 
     useEffect(() => {
-        axios.get('https://fineazy-backend.herokuapp.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
+        axios.get('http://ec2-3-86-219-228.compute-1.amazonaws.com/getprice/show_basket').then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
 
     }, [])
     const basketHandler = () => {

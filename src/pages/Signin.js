@@ -24,7 +24,7 @@ function Signin() {
     const handleSubmit = () => {
         const { email, password, name, api_key, api_secret } = user;
         if (user.password.length != '' && user.api_key != '' && user.email != '' && user.name != '' && user.api_secret != '') {
-            axios.post('https://fineazy-backend.herokuapp.com/auth/signup', user).then((res) => {
+            axios.post('http://ec2-3-86-219-228.compute-1.amazonaws.com/auth/signup', user).then((res) => {
                 console.log(res)
 
 

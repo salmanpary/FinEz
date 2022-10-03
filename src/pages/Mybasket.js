@@ -26,7 +26,7 @@ function Mybasket({ setBasket, basket }) {
     useEffect(() => {
         var email = "salmanpary@gmail.com"
 
-        axios.post('https://fineazy-backend.herokuapp.com/getprice/users_basket', { "email": "salmanpary@gmail.com" }).then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
+        axios.post('http://ec2-3-86-219-228.compute-1.amazonaws.com/getprice/users_basket', { "email": "salmanpary@gmail.com" }).then((res) => setShowbasketdata(res.data.baskets)).catch((err) => console.log(err))
     }, [])
     console.log(showbasket);
 
