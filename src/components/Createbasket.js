@@ -90,7 +90,7 @@ const Createbasket = () => {
   }
   const formonsubmit = (event) => {
     event.preventDefault()
-    axios.post("https://fineazy-backend.herokuapp.com/getprice/create_basket", obj).then((res) => {
+    axios.post("http://ec2-3-86-219-228.compute-1.amazonaws.com/getprice/create_basket", obj).then((res) => {
       console.log(res.data)
       alert('Basket created successfully')
       navigate('/home2')
